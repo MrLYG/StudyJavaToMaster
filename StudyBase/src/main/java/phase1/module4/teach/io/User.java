@@ -1,8 +1,7 @@
 package phase1.module4.teach.io;
 
 public class User implements java.io.Serializable {
-    private static final long serialVersionUID = -5814716593800822421L;
-
+    private static final long serialVersionUID = -3373494721798039232L;
     private String userName;  // 用户名
     private String password;  // 密码
     private transient String phoneNum;  // 手机号  表示该成员变量不参与序列化操作
