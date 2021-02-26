@@ -20,7 +20,7 @@ public class BufferedByteCopyTest {
 
             // 3.不断地从输入流中读取数据并写入到输出流中
             System.out.println("正在玩命地拷贝...");
-
+            bos.write(bis.read());
             byte[] bArr = new byte[1024];
             int res = 0;
             while ((res = bis.read(bArr)) != -1) {
