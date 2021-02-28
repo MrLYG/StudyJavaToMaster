@@ -1,5 +1,8 @@
 package phase1.module4.Work.multithreading.syn;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class UnSafeBuyTicket {
     public static void main(String[] args) {
         BuyTicket station = new BuyTicket();
@@ -13,30 +16,36 @@ public class UnSafeBuyTicket {
 class BuyTicket implements Runnable{
     //票
     private int ticketNums = 10;
-
+    private Lock lock = new ReentrantLock();
     boolean flag = true;
 
     @Override
-    public void run() {
+    public  void run() {
         //buy ticket
         while (flag) {
             try {
+                lock.lock();
                 buy();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+
+            }finally {
+                lock.unlock();
             }
         }
     }
 
-    private void buy() throws InterruptedException {
+    private /*synchronized*/ void buy() throws InterruptedException {
+
         //判断是否有票
         if(ticketNums<=0){
             flag = false;
             return;
         }
         //模拟延时
-        Thread.sleep(10);
+        Thread.sleep(100);
         //卖票
         System.out.println(Thread.currentThread().getName()+"get"+ticketNums--);
+
     }
 }
