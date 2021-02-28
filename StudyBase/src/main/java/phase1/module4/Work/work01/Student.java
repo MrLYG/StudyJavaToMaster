@@ -1,11 +1,12 @@
 package phase1.module4.Work.work01;
 
+import phase1.module4.teach.exceptionAndFiles.AgeException;
+
 import java.io.Serializable;
 
 public class Student implements Serializable {
 
     private static final long serialVersionUID = -8299167070514236079L;
-
     private String sId; //学生学号
     private String name;
     private String gender;
@@ -67,7 +68,16 @@ public class Student implements Serializable {
     }
 
     public void setAge(String age) {
-        this.age = age;
+        if (Integer.valueOf(age)> 0 && Integer.valueOf(age) < 150) {
+            this.age = age;
+        } else {
+            System.out.println("年龄范围区间为（0,150）,因为输入超出范围，年龄系统自定为0，稍后可以通过修改操作，修改年龄！！！");
+            try {
+                throw new phase1.module4.teach.exceptionAndFiles.AgeException("年龄异常");
+            } catch (AgeException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getGrade() {
