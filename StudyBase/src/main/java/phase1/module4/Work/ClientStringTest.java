@@ -1,5 +1,7 @@
 package phase1.module4.Work;
 
+import phase1.module3.teach.fanXing.Person;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,7 +28,6 @@ public class ClientStringTest {
                 //向服务端发送数据
                 System.out.println("请输入要发送的数据内容:");
                 String s1 = sc.next();
-
                 ps.println(s1);
 
                 System.out.println("Client发送数据内容成功!");
