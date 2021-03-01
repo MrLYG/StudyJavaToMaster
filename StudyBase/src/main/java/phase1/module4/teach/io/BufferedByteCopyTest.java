@@ -14,9 +14,9 @@ public class BufferedByteCopyTest {
 
         try {
             // 1.创建BufferedInputStream类型的对象与d:/02_IO流的框架结构.mp4文件关联
-            bis = new BufferedInputStream(new FileInputStream("d:/02_IO流的框架结构.mp4"));
+            bis = new BufferedInputStream(new FileInputStream("d:/dir/1.txt"));
             // 2.创建BufferedOuputStream类型的对象与d:/IO流的框架结构.mp4文件关联
-            bos = new BufferedOutputStream(new FileOutputStream("d:/IO流的框架结构.mp4"));
+            bos = new BufferedOutputStream(new FileOutputStream("F:/fdir/dir/1.txt"));
 
             // 3.不断地从输入流中读取数据并写入到输出流中
             System.out.println("正在玩命地拷贝...");
