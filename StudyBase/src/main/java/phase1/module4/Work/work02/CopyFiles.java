@@ -17,6 +17,30 @@ public class CopyFiles {
      *     a. 使用线程池将一个目录中的所有内容拷贝到另外一个目录中，包含子目录中的内容。
      *     b.实现将指定目录中的所有内容删除，包含子目录中的内容都要全部删除。
      */
+
+    public static void delete(File file){
+        File[] filesArray = file.listFiles();
+        if(!file.exists()){
+            System.out.println("待删除文件不存在，请重新操作！");
+            return;
+        }
+        // 先将目录中的文件全部删除
+        for (File tf: filesArray) {
+            String name = tf.getName();
+            // 文件
+            if (tf.isFile()) {
+                tf.delete();
+            }
+            // 目录
+            if (tf.isDirectory()) {
+                delete(tf);
+            }
+        }
+        //直接删除空目录
+        file.delete();
+    }
+
+    //拷贝方法
     public static void copy(){
         service = Executors.newFixedThreadPool(10);
 
@@ -45,29 +69,15 @@ public class CopyFiles {
             System.out.println("文件不存在于系统中，已为您创建！");
             System.out.println(toFiles.mkdirs() ? "create success" : "create failed");
         }
-        copydir(srcFiles);
+        copydir(srcFiles);  //现将所有目录拷贝下来，以防找不到文件出错
         copyAllFiles(srcFiles);
         service.shutdown();
+        return;
     }
-    public static void main(String[] args) {
-        Boolean flag = true;
 
-        String index = null;
-        Scanner sc = new Scanner(System.in);
 
-        while(flag){
-            System.out.println("a. 使用线程池将一个目录中的所有内容拷贝到另外一个目录中，包含子目录中的内容。");
-            System.out.println("b.实现将指定目录中的所有内容删除，包含子目录中的内容都要全部删除。");
-            System.out.println("请输入想实现功能对应的[小写]字母(a 或 b),结束请输入 bye");
-            index = sc.next();
-            switch (index){
-                case "a":copy();break;
-                case "b":;break;
-                case "bye":flag = false;
-                    System.out.println("bye,bye!");break;
-            }
-        }
-    }
+
+
 
     //先拷贝目录
     public static void copydir(File file){
@@ -76,7 +86,7 @@ public class CopyFiles {
             String name = tf.getName();
             // 若是目录，创建目录
             if (tf.isDirectory()) {
-                System.out.println("[" + name + "]");
+//                System.out.println("[" + name + "]");
                 int index = tf.getAbsolutePath().indexOf(formDir);
                 String absolutePath = tf.getAbsolutePath().substring(formDir.length());
                 absolutePath = absolutePath.replaceAll("\\\\","/");
@@ -110,6 +120,35 @@ public class CopyFiles {
         }
     }
 
+    public static void main(String[] args) {
+        Boolean flag = true;
+
+        String index = null;
+        Scanner sc = new Scanner(System.in);
+
+        while(flag){
+            System.out.println("a. 使用线程池将一个目录中的所有内容拷贝到另外一个目录中，包含子目录中的内容。");
+            System.out.println("b.实现将指定目录中的所有内容删除，包含子目录中的内容都要全部删除。");
+            System.out.println("请输入想实现功能对应的[小写]字母(a 或 b),结束请输入 bye");
+            index = sc.next();
+            switch (index){
+                case "a":
+                    copy();
+                    System.out.println("拷贝完成");break;
+                case "b":
+                    System.out.println("请输入需要删除的目录");
+                    String deletePath = sc.next();
+                    deletePath = deletePath.replaceAll("\\\\","/");
+                    File f = new File(deletePath);
+
+                    delete(f);
+                    break;
+                case "bye":flag = false;
+                    System.out.println("bye,bye!");break;
+            }
+        }
+    }
+
 }
 
 
@@ -130,8 +169,8 @@ class CopyThread implements Runnable{
         BufferedOutputStream bos = null;
         fromFile = fromFile.replaceAll("\\\\","/");
         toFile = toFile.replaceAll("\\\\","/");
-        System.out.println(Thread.currentThread().getName()+"..........."+fromFile);
-        System.out.println(Thread.currentThread().getName()+"..........."+toFile);
+//        System.out.println(Thread.currentThread().getName()+"..........."+fromFile);
+//        System.out.println(Thread.currentThread().getName()+"..........."+toFile);
         try {
             // 1.创建BufferedInputStream类型的对象与fromFile文件关联
             bis = new BufferedInputStream(new FileInputStream(fromFile));
@@ -139,14 +178,14 @@ class CopyThread implements Runnable{
             bos = new BufferedOutputStream(new FileOutputStream(toFile));
 
             // 3.不断地从输入流中读取数据并写入到输出流中
-            System.out.println("正在玩命地拷贝...");
+//            System.out.println("正在玩命地拷贝...");
             byte[] bArr = new byte[1024];
             int res = 0;
             while ((res = bis.read(bArr)) != -1) {
                 bos.write(bArr, 0, res);
             }
 
-            System.out.println("拷贝文件成功！");
+//            System.out.println(Thread.currentThread().getName()+"..........."+toFile+"..拷贝文件成功！");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
