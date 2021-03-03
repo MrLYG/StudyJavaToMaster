@@ -44,7 +44,16 @@ public class ClassTest {
 
         //c1 = Class.forName("int");
         //System.out.println("c1 = " + c1); // 不能获取基本数据类型的Class对象
-
+        c1 = Class.forName("phase1.module4.teach.reflect.Person");
+        Object o = null;
+        try {
+            o = c1.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        System.out.println(o);
         System.out.println("---------------------------------------------------");
         // 5.使用类加载器的方式来获取Class对象
         ClassLoader classLoader = ClassTest.class.getClassLoader();
