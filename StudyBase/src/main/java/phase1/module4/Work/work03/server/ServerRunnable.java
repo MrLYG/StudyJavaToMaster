@@ -51,10 +51,7 @@ public class ServerRunnable  implements Runnable{
                 //实现对客户端发来的字符串内容接收并打印
                 String s1 = br.readLine();
                 System.out.println("Client--"+s.getInetAddress()+s.getPort()+"发来的内容是:"+s1);
-                if("bye".equalsIgnoreCase(s1)){
-                    System.out.println("Client--"+s.getPort()+s.getInetAddress()+"已下线！");
-                    break;
-                }
+
                 String username = "";
                 for(Map.Entry<String, Socket> m : Server.sockets.entrySet()) {
                     if(this.s == m.getValue()){
@@ -70,7 +67,7 @@ public class ServerRunnable  implements Runnable{
                     ps = new PrintStream(m.getValue().getOutputStream());  //获取每一个socket的输出流
                     ps.println(username+":"+s1);
                 }
-//                broadCast(s1);
+
             }
         } catch (IOException e) {
             e.printStackTrace();

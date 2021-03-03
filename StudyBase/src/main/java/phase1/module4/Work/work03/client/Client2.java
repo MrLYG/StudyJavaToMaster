@@ -7,7 +7,8 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client2 {static Socket clientSocket = null;
+public class Client2 {
+    static Socket clientSocket = null;
     public static void main(String[] args) {
         System.out.println("请先输入姓名，然后进入聊天室");
         Scanner sc = new Scanner(System.in);
@@ -77,6 +78,16 @@ public class Client2 {static Socket clientSocket = null;
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            if(null != br){
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(null!=ps){
+                ps.close();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 package phase1.module4.Work.multithreading;
 
-interface date{
+interface Date{
     void date();
 }
 
@@ -10,7 +10,7 @@ public class StaticProxy {
     }
 }
 
-class Person implements date{
+class Person implements Date{
 
     @Override
     public void date() {
@@ -18,17 +18,17 @@ class Person implements date{
     }
 }
 
-class Restaurant implements date{
-    private Person t;
+class Restaurant implements Date{
+    private Date d;
 
-    public Restaurant(Person t) {
-        this.t = t;
+    public Restaurant(Date d) {
+        this.d = d;
     }
 
     @Override
     public void date() {
         before();
-        t.date();
+        d.date();
         after();
     }
 
