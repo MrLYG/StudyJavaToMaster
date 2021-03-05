@@ -16,6 +16,13 @@ public class User implements Serializable {
     public User() {
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                '}';
+    }
 
     public String getUserName() {
         return userName;

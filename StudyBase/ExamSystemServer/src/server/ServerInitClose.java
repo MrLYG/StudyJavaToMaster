@@ -10,10 +10,27 @@ import java.net.Socket;
  * 变成实现服务器的初始化和关闭
  */
 public class ServerInitClose {
-    ServerSocket ss = null;
-    Socket s = null;
-    ObjectInputStream ois = null;
-    ObjectOutputStream oos = null;
+    private ServerSocket ss = null;
+    private Socket s = null;
+    private ObjectInputStream ois = null;
+
+    public ObjectInputStream getOis() {
+        return ois;
+    }
+
+    public void setOis(ObjectInputStream ois) {
+        this.ois = ois;
+    }
+
+    public ObjectOutputStream getOos() {
+        return oos;
+    }
+
+    public void setOos(ObjectOutputStream oos) {
+        this.oos = oos;
+    }
+
+    private ObjectOutputStream oos = null;
     /**
      * 自定义成员方法实现服务器的初始化操作
      */

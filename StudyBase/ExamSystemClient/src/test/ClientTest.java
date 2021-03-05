@@ -7,19 +7,19 @@ import java.io.IOException;
 
 public class ClientTest {
     public static void main(String[] args) {
-        ClientInitClose cis = null;
+        ClientInitClose cic = null;
         ClientView cv = null;
         try {
-            cis = new ClientInitClose();
-            cis.clientInit();
+            cic = new ClientInitClose();
+            cic.clientInit();
 
-            cv = new ClientView();
+            cv = new ClientView(cic);
             cv.clientMainPage();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException | InterruptedException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             try {
-                cis.clientClose();
+                cic.clientClose();
             } catch (IOException e) {
                 e.printStackTrace();
             }
