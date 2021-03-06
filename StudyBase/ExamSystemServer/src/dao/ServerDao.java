@@ -125,6 +125,7 @@ public class ServerDao {
                 }
             }
         }
+        return;
     }
 
     /**
@@ -141,6 +142,7 @@ public class ServerDao {
                 it.remove();
             }
         }
+        return;
     }
 
     /**
@@ -149,21 +151,36 @@ public class ServerDao {
      */
     public void reviseStudent(Student student) {
         Iterator<Student> it = students.iterator();
+        Student rStu = new Student();
+        int index = -1;
         while (it.hasNext()){
             Student stu = it.next(); //用于保存被删除学生的信息
             if(student.getSid().equals(stu.getSid())){
-                System.out.println(stu);
-                int index = students.indexOf(stu); //获取元素的位置
+                index = students.indexOf(stu); //获取元素的位置
                 stu.setName(student.getName());
                 stu.setGender(student.getGender());
                 stu.setAge(student.getAge());
-                students.set(index,stu);//将修改的stu存入集合中
-                System.out.println("学生"+stu+"已修改完毕");
+                rStu = stu;
+
+
             }
+        }
+        if(index == -1) return;
+        students.set(index,rStu);//将修改的stu存入集合中
+        System.out.println("学生"+rStu+"已修改完毕");
+        itStus();
+        return;
+    }
+    //遍历学生信息
+    public void itStus(){
+        Iterator<Student> it = students.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
         }
     }
 
     public void closeStu() {
         writeStudentsInfo();
+        return;
     }
 }
