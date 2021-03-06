@@ -1,4 +1,4 @@
-package dao;
+package entity;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -8,17 +8,42 @@ import java.util.Objects;
  */
 public class Student implements Serializable {
     private static final long serialVersionUID = 5123178131729916261L;
-    private String id;  //学生id
+    private String sid;  //学生id
     private String name;
     private String gender;
     private String age;
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public Student(String sid, String name, String gender, String age) {
+        this.sid = sid;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+    }
+
+    public Student() {
+
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
     public String getId() {
-        return id;
+        return sid;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "sid='" + sid + '\'' +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age='" + age + '\'' +
+                '}';
     }
 
     @Override
@@ -26,7 +51,7 @@ public class Student implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(id, student.id) &&
+        return Objects.equals(sid, student.sid) &&
                 Objects.equals(name, student.name) &&
                 Objects.equals(gender, student.gender) &&
                 Objects.equals(age, student.age);
@@ -34,21 +59,15 @@ public class Student implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, gender, age);
+        return Objects.hash(sid, name, gender, age);
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age='" + age + '\'' +
-                '}';
+    public String getSid() {
+        return sid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSid(String sid) {
+        this.sid = sid;
     }
 
     public String getName() {
@@ -72,13 +91,6 @@ public class Student implements Serializable {
     }
 
     public void setAge(String age) {
-        this.age = age;
-    }
-
-    public Student(String id, String name, String gender, String age) {
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
         this.age = age;
     }
 }

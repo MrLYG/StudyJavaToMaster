@@ -184,7 +184,6 @@ public class StudentSystem {
                 System.out.println("所查询的学生信息为:"+stu);
             }
         }
-
     }
     //遍历学生信息
     public void itStus(){

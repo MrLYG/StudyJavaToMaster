@@ -1,6 +1,6 @@
 package test;
 
-import server.ServerDao;
+import dao.ServerDao;
 import server.ServerInitClose;
 import server.ServerView;
 
@@ -18,7 +18,10 @@ public class ServerTest {
 
             ServerView sv = new ServerView(sic,sd);
             sv.serverReceive();
-        } catch (IOException | ClassNotFoundException e) {
+
+
+
+        } catch (IOException | ClassNotFoundException | InterruptedException e) {
             e.printStackTrace();
         } finally {
             try {

@@ -2,19 +2,20 @@ package model;
 
 import java.io.Serializable;
 
-public class UserMessage implements Serializable {
+public class Message<T> implements Serializable {
     private static final long serialVersionUID = 1508758434281146107L;
 
     private String type; //消息的类型
-    private User user;   //消息的具体内容
+    private T t;   //消息的具体内容
 
-    public UserMessage() {
+    public Message() {
     }
 
-    public UserMessage(String type, User user) {
+    public Message(String type, T t) {
         this.type = type;
-        this.user = user;
+        this.t = t;
     }
+
 
     public String getType() {
         return type;
@@ -22,9 +23,9 @@ public class UserMessage implements Serializable {
 
     @Override
     public String toString() {
-        return "UserMessage{" +
+        return "Message{" +
                 "type='" + type + '\'' +
-                ", user=" + user +
+                ", t=" + t +
                 '}';
     }
 
@@ -32,11 +33,11 @@ public class UserMessage implements Serializable {
         this.type = type;
     }
 
-    public User getUser() {
-        return user;
+    public T getT() {
+        return t;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setT(T t) {
+        this.t = t;
     }
 }
