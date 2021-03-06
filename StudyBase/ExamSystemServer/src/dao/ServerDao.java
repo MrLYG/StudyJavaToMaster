@@ -44,7 +44,7 @@ public class ServerDao {
 
 
     /***
-     * 校验账号和密码
+     * 校验管理员账号和密码
      * @param user
      * @return
      */
@@ -53,6 +53,28 @@ public class ServerDao {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 校验学员账号和密码
+     * @param user
+     * @return
+     */
+    public boolean serverStudentCheck(User user) {
+        List ss = new ArrayList(); //ss用于存放查询结果
+
+        //通过迭代器，遍历学生信息集合
+        Iterator<Student> it = students.iterator();
+        while (it.hasNext()){
+            Student stu = it.next(); //用于保存被删除学生的信息
+            if(user.getUserName().equals(stu.getId()) && user.getPassWord().equals(stu.getGender()+stu.getAge())){
+                return true;
+            }
+        }
+
+
+        return false;
+
     }
 
 
@@ -161,4 +183,6 @@ public class ServerDao {
         writeStudentsInfo();
         return;
     }
+
+
 }

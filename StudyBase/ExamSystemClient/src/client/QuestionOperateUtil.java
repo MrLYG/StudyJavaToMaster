@@ -6,6 +6,7 @@ import model.Message;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -63,7 +64,67 @@ public class QuestionOperateUtil {
             System.out.println(q);
 
         }
+        Message m = new Message("addQuestions",questions);
+        cic.getOos().writeObject(m);
 
+        System.out.println("题目导入成功");
+        return;
+    }
+
+    /**
+     * 用于通知服务端关闭question,并把数据存入到文件中
+     * @param cic
+     * @throws IOException
+     */
+    public void closeQuestion(ClientInitClose cic) throws IOException {
+        Message m = new Message("closeQuestions","");
+        cic.getOos().writeObject(m);
+    }
+
+    /***
+     * 修改考题
+     * @param cic
+     */
+    public void reviseQuestion(ClientInitClose cic) throws IOException {
+        System.out.println("请输入题号");
+        String id = ClientScanner.getSc().next();
+        System.out.println("请输入题库内容");
+        String content = ClientScanner.getSc().next();
+        System.out.println("请输入选项，每个选项之间用','隔开");
+        String choice = ClientScanner.getSc().next();
+        String[] choices = choice.split(",");
+        System.out.println("请输入正确选项");
+        String correctChoice = ClientScanner.getSc().next();
+        Question q = new Question(id,content,choices,correctChoice);
+        Message m = new Message("reviseQuestion",q);
+        cic.getOos().writeObject(m);
+        return;
+    }
+
+    public void findQuestion(ClientInitClose cic) throws IOException, ClassNotFoundException {
+
+        System.out.println("请输入题号");
+        Question q = new Question();
+        q.setqId(ClientScanner.getSc().next());
+        Message m = new Message("findQuestion", q);
+        cic.getOos().writeObject(m);
+
+        //接受服务端发来的消息
+        Message resM = (Message) cic.getOis().readObject();
+
+        if("success".equals(resM.getType())){
+            System.out.println("查询成功！");
+        }else {
+            System.out.println("查询失败请联系管理员！");
+        }
+        List res = (List) resM.getT();
+        //通过迭代器，遍历学生信息集合
+        System.out.println("所查询的题目信息为:");
+        Iterator<Question> it = res.iterator();
+        while (it.hasNext()){
+            Question stu = it.next();
+            System.out.println(stu);
+        }
         return;
     }
 }

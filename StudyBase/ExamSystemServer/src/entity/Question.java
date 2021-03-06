@@ -1,13 +1,19 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Question {
+public class Question implements Serializable {
+    private static final long serialVersionUID = 8576139288132168945L;
     private String qId;
     private String qContent; //题目内容
     private String[] choices; //选项用数组存储
     private String correctChoice; //正确答案
+
+    public Question() {
+
+    }
 
     @Override
     public String toString() {

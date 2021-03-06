@@ -1,6 +1,8 @@
 package server;
 
+import dao.QuestionDao;
 import dao.ServerDao;
+import entity.Question;
 import entity.Student;
 import model.User;
 import model.Message;
@@ -15,10 +17,13 @@ import java.util.List;
 public class ServerView {
     private ServerInitClose sic;
     private ServerDao sd;
+    private QuestionDao qd;
 
-    public ServerView(ServerInitClose sic, ServerDao sd) {
+
+    public ServerView(ServerInitClose sic, ServerDao sd, QuestionDao qd) {
         this.sic = sic;
         this.sd = sd;
+        this.qd = qd;
     }
 
     /**
@@ -67,7 +72,30 @@ public class ServerView {
                 case "closeStu":
                     sd.closeStu();
                     break;
-
+                case "addQuestions":
+                    qd.addQuestions((List<Question>) o.getT());
+                    break;
+                case "closeQuestions":
+                    qd.closeQuestions();
+                    break;
+                case "reviseQuestion":
+                    qd.reviseQuestion((Question)o.getT());
+                    break;
+                case "findQuestion":
+                    List resfindQuestion = qd.findQuestion((Question)o.getT());
+                    Message mfindQuestion = new Message("success",resfindQuestion);    //构建Message对象，传输给服务端，告诉服务端该功能是否完成，并传输数据
+                    sic.getOos().writeObject(mfindQuestion);
+                    break;
+                case "stuCheck":
+                    if(sd.serverStudentCheck((User) o.getT())){
+                        o.setType("success");
+                    }else {
+                        o.setType("fail");
+                    }
+                    //将校验结果发送给客户端
+                    sic.getOos().writeObject(o);
+                    System.out.println("服务器发送校验结果成功!");
+                    break;
             }
         }
 
