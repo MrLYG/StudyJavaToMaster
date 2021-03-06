@@ -50,6 +50,84 @@ public class ClientView {
         }
     }
 
+    /***
+     * 实现绘制管理员系统
+     */
+     public void managerMainPage() throws InterruptedException, IOException, ClassNotFoundException {
+         while(true) {
+             System.out.println("  \n\n\t\t   管理员系统");
+             System.out.println("--------------------------------------");
+             System.out.print("   [1] 学员管理系统");
+             System.out.println("     [2] 考题管理系统");
+             System.out.println("   [0] 退出系统");
+             System.out.println("--------------------------------------");
+             System.out.println("请选择要进行的业务编号;");
+             int choose = ClientScanner.getSc().nextInt();
+             switch (choose){
+                 case 1:
+                     System.out.println("学员管理系统.....");
+                     stuManageView();
+                     break;
+                 case 2:
+                     System.out.println("考题管理系统.....");
+                     questionManageView();
+                     break;
+                 case 0:
+                     System.out.println("正在退出.....");Thread.sleep(1000);
+                     return;
+                 default:
+                     System.out.println("输入错误，请重新选择");
+             }
+
+         }
+     }
+
+    /**
+     * 用于绘制考题管理模块界面
+     */
+    private void questionManageView() throws InterruptedException, IOException {
+        QuestionOperateUtil questionOperateUtil = new QuestionOperateUtil();
+        while(true) {
+            System.out.println("  \n\n\t\t   考题管理");
+            System.out.println("--------------------------------------");
+            System.out.print("   [1] 增加考题");
+            System.out.print("     [2] 删除考题");
+            System.out.print("     [3] 修改考题");
+            System.out.println("     [4] 查找考题");
+            System.out.println("   [0] 退出系统");
+            System.out.println("--------------------------------------");
+            System.out.println("请选择要进行的业务编号;");
+            int choose = ClientScanner.getSc().nextInt();
+            switch (choose){
+                case 1:
+                    System.out.println("导入考题.....");
+                    questionOperateUtil.addQuestion(cic);
+                    break;
+                case 2:
+                    System.out.println("删除考题.....");
+//                    questionOperateUtil.deleteQuestion(cic);
+                    break;
+                case 3:
+                    System.out.println("修改考题.....");
+//                    questionOperateUtil.reviseQuestion(cic);
+
+                    break;
+                case 4:
+                    System.out.println("查找考题.....");
+//                    questionOperateUtil.findQuestion(cic);
+                    break;
+                case 0:
+//                    questionOperateUtil.closeQuestion(cic);
+                    System.out.println("正在退出.....");Thread.sleep(1000);
+                    return;
+                default:
+                    System.out.println("输入错误，请重新选择");
+            }
+
+        }
+    }
+
+
     /**
      * 自定义方法实现管理员登录
      */
@@ -67,7 +145,7 @@ public class ClientView {
         um = (Message) cic.getOis().readObject();
         if("success".equals(um.getType())){
             System.out.println("登录成功欢迎使用");
-            stuManageView();
+            managerMainPage();
         }else {
             System.out.println("用户名或密码错误！");
         }

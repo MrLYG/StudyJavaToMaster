@@ -9,6 +9,16 @@ public class Question {
     private String[] choices; //选项用数组存储
     private String correctChoice; //正确答案
 
+    @Override
+    public String toString() {
+        return "Question{" +
+                "qId='" + qId + '\'' +
+                ", qContent='" + qContent + '\'' +
+                ", choices=" + Arrays.toString(choices) +
+                ", correctChoice='" + correctChoice + '\'' +
+                '}';
+    }
+
     public Question(String qId, String qContent, String[] choices, String correctChoice) {
         this.qId = qId;
         this.qContent = qContent;
