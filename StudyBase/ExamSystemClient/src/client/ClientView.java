@@ -66,6 +66,8 @@ public class ClientView {
         um = (UserMessage) cic.getOis().readObject();
         if("success".equals(um.getType())){
             System.out.println("登录成功欢迎使用");
+
+
         }else {
             System.out.println("用户名或密码错误！");
         }

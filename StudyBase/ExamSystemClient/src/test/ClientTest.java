@@ -15,6 +15,9 @@ public class ClientTest {
 
             cv = new ClientView(cic);
             cv.clientMainPage();
+
+
+
         } catch (IOException | InterruptedException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
