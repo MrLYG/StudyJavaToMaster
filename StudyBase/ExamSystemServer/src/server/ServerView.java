@@ -2,7 +2,9 @@ package server;
 
 import dao.QuestionDao;
 import dao.ServerDao;
+import entity.Grade;
 import entity.Question;
+import entity.QuestionsBank;
 import entity.Student;
 import model.User;
 import model.Message;
@@ -96,6 +98,17 @@ public class ServerView {
                     sic.getOos().writeObject(o);
                     System.out.println("服务器发送校验结果成功!");
                     break;
+                case "startExam":
+                    QuestionsBank questionsBank = qd.getQuestionsBank((String)o.getT());
+                    System.out.println(questionsBank);
+                    Message mquestionsBank = new Message("success",questionsBank);
+                    //将校验结果发送给客户端
+                    sic.getOos().writeObject(mquestionsBank);
+                    break;
+                case "restoreGrade":
+                    qd.restoreGrade((Grade)o.getT());
+                    break;
+
             }
         }
 

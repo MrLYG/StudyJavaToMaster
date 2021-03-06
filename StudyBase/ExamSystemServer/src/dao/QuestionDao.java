@@ -1,12 +1,15 @@
 package dao;
 
+import entity.Grade;
 import entity.Question;
+import entity.QuestionsBank;
 import entity.Student;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 public class QuestionDao {
     public static List<Question> questions = new ArrayList<>();; //questions 集合用于保存所有question的信息
@@ -72,22 +75,17 @@ public class QuestionDao {
 
     public void reviseQuestion(Question question) {
         Iterator<Question> it = questions.iterator();
-        Question rQ = new Question();
         int index = -1;
         while (it.hasNext()){
             Question q = it.next(); //用于保存被删除学生的信息
             if(question.getqId().equals(q.getqId())){
                 index = questions.indexOf(q); //获取元素的位置
-                q.setqContent(question.getqContent());
-                q.setChoices(question.getChoices());
-                q.setCorrectChoice(question.getCorrectChoice());
-                rQ = q;
 
             }
         }
         if(index == -1) return;
-        questions.set(index,rQ);//将修改的stu存入集合中
-        System.out.println("学生"+rQ+"已修改完毕");
+        questions.set(index,question);//将修改的stu存入集合中
+        System.out.println(questions);
         itStus();
         return;
     }
@@ -108,7 +106,7 @@ public class QuestionDao {
     public List<Question> findQuestion(Question question) {
         List ss = new ArrayList(); //ss用于存放查询结果
 
-        //通过迭代器，遍历学生信息集合
+        //通过迭代器，遍历题目信息集合
         Iterator<Question> it = questions.iterator();
         while (it.hasNext()){
             Question q = it.next(); //用于保存被删除学生的信息
@@ -117,5 +115,40 @@ public class QuestionDao {
             }
         }
         return ss;
+    }
+
+    public QuestionsBank getQuestionsBank(String sId) {
+        QuestionsBank questionsBank = new QuestionsBank();
+        questionsBank.setQuestionsBankId("1");
+        Random r = new Random();
+        int[] numbers = new int[3];
+        for (int i = 0; i < 3; i++) {
+            int number = r.nextInt(5) + 1;
+            numbers[i] = number;
+
+        }
+        Question[] ss = new Question[3];//ss用于存放查询结果
+        int index = 0;
+        for (int i = 0; i < 3; i++) {
+
+            Iterator<Question> it = questions.iterator();
+            while (it.hasNext()){
+                Question q = it.next(); //用于保存被删除学生的信息
+                if(q.getqId().equals(String.valueOf(numbers[i]))){    //如果题号和随机数相等
+                    ss[index]=q;
+                    index++;
+                }
+            }
+        }
+        questionsBank.setQuestions(ss);
+        return questionsBank;
+    }
+
+    /**
+     * 存储成绩
+     * @param t
+     */
+    public void restoreGrade(Grade t) {
+        System.out.println("成绩存储成功");
     }
 }

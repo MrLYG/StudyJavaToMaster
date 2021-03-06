@@ -1,4 +1,5 @@
 package dao;
+import entity.QuestionsBank;
 import entity.Student;
 import model.Message;
 import model.User;
@@ -151,23 +152,16 @@ public class ServerDao {
      */
     public void reviseStudent(Student student) {
         Iterator<Student> it = students.iterator();
-        Student rStu = new Student();
         int index = -1;
         while (it.hasNext()){
             Student stu = it.next(); //用于保存被删除学生的信息
             if(student.getSid().equals(stu.getSid())){
                 index = students.indexOf(stu); //获取元素的位置
-                stu.setName(student.getName());
-                stu.setGender(student.getGender());
-                stu.setAge(student.getAge());
-                rStu = stu;
-
-
             }
         }
         if(index == -1) return;
-        students.set(index,rStu);//将修改的stu存入集合中
-        System.out.println("学生"+rStu+"已修改完毕");
+        students.set(index,student);//将修改的stu存入集合中
+        System.out.println(students);
         itStus();
         return;
     }
@@ -183,6 +177,7 @@ public class ServerDao {
         writeStudentsInfo();
         return;
     }
+
 
 
 }

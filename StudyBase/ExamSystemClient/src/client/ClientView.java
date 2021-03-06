@@ -55,8 +55,8 @@ public class ClientView {
     /**
      * 学员登录
      */
-    private void clientStudentLogin() throws IOException, ClassNotFoundException {
-        System.out.println("请输入学员名称:");
+    private void clientStudentLogin() throws IOException, ClassNotFoundException, InterruptedException {
+        System.out.println("请输入学员ID:");
         String userName = ClientScanner.getSc().next();
         System.out.println("请输入学员的密码信息(密码由性别和年龄组成)");
         String password = ClientScanner.getSc().next();
@@ -79,12 +79,36 @@ public class ClientView {
     /**
      * 自定义方法实现绘制学员系统
      */
-    private void studentMainPage() {
+    private void studentMainPage() throws InterruptedException, IOException, ClassNotFoundException {
+        ExamOperateUtil examOperateUtil = new ExamOperateUtil();
+        int grade = 0;
+        while(true) {
+            System.out.println("  \n\n\t\t   学员考试系统");
+            System.out.println("--------------------------------------");
+            System.out.print("   [1] 开始考试");
+            System.out.println("     [2] 查询成绩");
+            System.out.println("   [0] 退出系统");
+            System.out.println("--------------------------------------");
+            System.out.println("请选择要进行的业务编号;");
 
+            int choose = ClientScanner.getSc().nextInt();
+            switch (choose){
+                case 1:
+                    System.out.println("开始考试.....");
+                    grade = examOperateUtil.startExam(cic);
+                    break;
+                case 2:
+                    System.out.println("查询成绩.....");
+                    System.out.println("成绩为:"+grade);
+                    break;
+                case 0:
+                    System.out.println("正在退出系统.....");Thread.sleep(1000);
+                    return;
+                default:
+                    System.out.println("输入错误，请重新选择");
+            }
 
-
-
-        return ;
+        }
     }
 
 
