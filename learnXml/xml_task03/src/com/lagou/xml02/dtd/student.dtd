@@ -1,0 +1,18 @@
+<!ELEMENT students (student+) >
+        <!ELEMENT student (name,age,sex)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT age (#PCDATA)>
+        <!ELEMENT sex (#PCDATA)>
+        <!ATTLIST student number ID #REQUIRED>
+
+<!--
+    ELEMENT 定义元素
+     students (student+):  students 代表根元素
+     student+ : 根标签中 至少有一个 student子元素
+     student (name,age,sex) : student标签中可以 包含的子元素  按顺序出现
+     #PCDATA : 普通的文本内容
+     ATTLIST : 用来定义属性
+     student number ID : student标签中 有一个ID属性 叫做 number
+     #REQUIRED : number的属性必须填写
+     ID 唯一的值 不能重复 值只能是字母或者下划线开头
+-->

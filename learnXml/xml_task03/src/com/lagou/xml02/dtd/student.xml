@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE students SYSTEM "H:\jdbc_work\xml_task03\src\com\lagou\xml02\dtd\student.dtd">
+<students>
+    <student number="S1">
+        <name>长海</name>
+        <age>20</age>
+        <sex>男</sex>
+    </student>
+
+    <student number="S2">
+        <name>大玲子</name>
+        <age>18</age>
+        <sex>女</sex>
+    </student>
+
+</students>

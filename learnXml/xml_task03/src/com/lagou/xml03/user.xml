@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users
+        xmlns="http://www.lagou.com/xml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.lagou.com/xml user.xsd"
+>
+    <user id="001">
+        <name>张百万</name>
+        <age>25</age>
+        <hobby>抽烟</hobby>
+    </user>
+
+    <user id="002">
+        <name>于谦</name>
+        <age>55</age>
+        <hobby>烫头</hobby>
+    </user>
+
+    <user id="003">
+        <name>小斌</name>
+        <age>25</age>
+        <hobby>喝酒</hobby>
+    </user>
+
+
+</users>
