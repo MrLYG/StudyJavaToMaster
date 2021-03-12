@@ -1,9 +1,8 @@
-import Util.DruidUtil;
+import work.www.lagou.utils.DruidUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
 

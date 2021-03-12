@@ -1,4 +1,4 @@
-package Util;
+package work.www.lagou.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
