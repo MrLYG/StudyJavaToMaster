@@ -3,9 +3,11 @@ package work.www.lagou.dao;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import work.www.lagou.entity.Account;
+import work.www.lagou.utils.DateUtils;
 import work.www.lagou.utils.DruidUtil;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 
 public class AccountDao {
@@ -29,6 +31,15 @@ public class AccountDao {
 
         String sql2 = "update account set balance = balance + ? where card = ? ";
         queryRunner.update(con,sql2, new String[]{money, targetCard});
+
+        //添加转账记录
+        String sql3 = "insert into transaction values(?,?,?,?,?)";
+        Object[] params = {null,srcCard,"转出",money, DateUtils.getDateFormart()};
+        queryRunner.update(con,sql3, params );
+
+        String sql4 = "insert into transaction values(?,?,?,?,?)";
+        Object[] p = {null,targetCard,"转入",money, DateUtils.getDateFormart()};
+        queryRunner.update(con,sql4, p );
 
         con.commit();
         return true;

@@ -37,6 +37,7 @@ public class work01 {
         Boolean f = accountDao.transaction(srcCardNo,targetCardNo,String.valueOf(money));
         if (f) {
             System.out.println("转账成功");
+
         }
 
 
