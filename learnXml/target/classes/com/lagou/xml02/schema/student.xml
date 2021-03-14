@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<students
+        xmlns="http://www.lagou.com/xml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.lagou.com/xml student.xsd"
+>
+    <student number="hehe_1234">
+        <name>张三</name>
+        <age>200</age>
+        <sex>male</sex>
+    </student>
+
+    <student number="hehe_4567">
+        <name>张三</name>
+        <age>200</age>
+        <sex>male</sex>
+    </student>
+
+</students>

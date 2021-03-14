@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bookstore>
+    <book id="book1">
+        <name>金瓶梅</name>
+        <author>金圣叹</author>
+        <price>99</price>
+    </book>
+    <book id="book2">
+        <name>红楼梦</name>
+        <author>曹雪芹</author>
+        <price>69</price>
+    </book>
+    <book id="book3">
+        <name>Java编程思想</name>
+        <author>埃克尔</author>
+        <price>59</price>
+    </book>
+</bookstore>

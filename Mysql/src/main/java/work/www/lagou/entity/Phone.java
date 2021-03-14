@@ -12,7 +12,7 @@ package work.www.lagou.entity;
  */
 public class Phone {
     private int id;
-    private String name;
+    private String pname;
     private Double price;
     private String prodate;
     private String color;
@@ -21,7 +21,7 @@ public class Phone {
     public String toString() {
         return "Phone{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + pname + '\'' +
                 ", price=" + price +
                 ", prodate='" + prodate + '\'' +
                 ", color='" + color + '\'' +
@@ -36,12 +36,12 @@ public class Phone {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPname() {
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 
     public Double getPrice() {
@@ -71,9 +71,9 @@ public class Phone {
     public Phone() {
     }
 
-    public Phone(int id, String name, Double price, String prodate, String color) {
+    public Phone(int id, String pname, Double price, String prodate, String color) {
         this.id = id;
-        this.name = name;
+        this.pname = pname;
         this.price = price;
         this.prodate = prodate;
         this.color = color;
