@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<style>
+    
+</style>
+<body>
+    <!-- 1）表单中包括：用户名，密码，性别，学历（本科，专科），自我介绍；
+        （2）输入完用户名后校验只能是"admin"，否则弹框提示错误
+        （3）点击提交执行后执行事件，把自我介绍的内容弹框提示出来；
+    -->
+    <div >
+        <form>
+            <p>
+                用户名：<input type="text"><br>
+            </p>
+            <p>
+                密码：<input type="password"><br>
+            </p>
+            <p>
+                性别： <input name="sex"  type="radio" value="男"> 男
+                <input name="sex" type="radio" value="女">  女
+            </p>
+            <p>
+                学历：
+                <select>
+                    <option selected="selected">本科</option>
+                    <option>专科</option>
+                </select>
+            </p>
+            <p>
+                自我介绍:
+                <textarea cols="20" rows="5">
+
+                </textarea>
+            </p>
+            <button>
+                提交
+            </button>
+
+
+        </form>
+
+    </div>
+    
+</body>
+</html>

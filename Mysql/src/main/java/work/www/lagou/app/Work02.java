@@ -4,8 +4,12 @@ import work.www.lagou.dao.PhoneDao;
 import work.www.lagou.entity.Phone;
 
 import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author 李沅罡
@@ -16,6 +20,7 @@ public class Work02 {
         /**+
          * 需求1:  查询价格高于2000元，生产日期是2019年之前的所有手机
          */
+        LocalDate localDate = LocalDate.of(2019,1,1);
         List l = phoneDao.findPhoneByPriceAndProdate(2000,"2019");
 
         System.out.println(l);

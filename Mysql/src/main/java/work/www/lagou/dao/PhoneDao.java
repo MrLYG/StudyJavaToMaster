@@ -17,7 +17,7 @@ public class PhoneDao {
     public List<Phone> findPhoneByPriceAndProdate(double price, String date) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(DruidUtil.getDataSource());
         String sql = "select * from phone where price > ? and prodate  < ?";
-        Object[] o ={price, date};
+//        Object[] o ={price, date};
 //        List<Phone> query = queryRunner.query(sql, new BeanListHandler<Phone>(Phone.class), price, date);
 //        return query;
         return queryRunner.query(sql, new BeanListHandler<Phone>(Phone.class), price, date);
