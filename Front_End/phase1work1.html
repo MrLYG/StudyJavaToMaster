@@ -17,19 +17,14 @@
         （3）点击提交执行后执行事件，把自我介绍的内容弹框提示出来；
     -->
     <div >
-        <form>
-            <p>
-                用户名：<input type="text"><br>
-            </p>
-            <p>
-                密码：<input type="password"><br>
-            </p>
-            <p>
-                性别： <input name="sex"  type="radio" value="男"> 男
+        <form action="xxx"  onsubmit="return alertIntro()">
+            <p>用户名：<input id="username" onblur="checkUsername()" type="text"><br> </p>
+            <p>密码：<input type="password"><br></p>
+            <p>性别： 
+                <input name="sex"  type="radio" value="男"> 男
                 <input name="sex" type="radio" value="女">  女
             </p>
-            <p>
-                学历：
+            <p>学历：
                 <select>
                     <option selected="selected">本科</option>
                     <option>专科</option>
@@ -37,18 +32,32 @@
             </p>
             <p>
                 自我介绍:
-                <textarea cols="20" rows="5">
-
-                </textarea>
+                <textarea id="intro" cols="20" rows="5"></textarea>
             </p>
-            <button>
+            <button  >
                 提交
             </button>
-
-
         </form>
-
     </div>
     
+    <script>
+        function checkUsername(){
+            var username = document.getElementById("username").value;
+            if(username != "admin"){
+                alert("帐号不为admin！");
+               
+            }
+            
+        }
+
+        function alertIntro(){
+            var intro = document.getElementById("intro").value;
+            alert(intro);
+            
+        }
+    
+       
+
+    </script>
 </body>
 </html>

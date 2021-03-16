@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var str = "hello";
+      // console.log( str.length );
+
+      // var name = "AngierSun";
+      // console.log( "大写："+name.toUpperCase() );
+      // console.log( "小写："+name.toLowerCase() );
+
+      //   var str1 = "javascript网页教程";
+      //   var str2 = str1.charAt(12); // 下标12上的字符
+      //   console.log(str2); //教
+
+      //   var str3 = str1.charCodeAt(12);
+      //   console.log(str3); //25945:（汉字“教”在unicode编码中的编号）
+
+      //   var str1 = "javascript网页教程";
+      //   var str2 = str1.indexOf("a");
+      //   console.log(str2); // 1 , a字符在str1中第一次出现的下标
+
+      //   var str3 = str1.lastIndexOf("a"); //3,a字符在str1中最后一次出现的下标
+      //   console.log(str3);
+
+      // var str1 = "abcdefgh";
+      // var str2 = str1.substring(2,4);
+      // console.log(str2); //cd，从2开始（包含），4结束（不包含）
+
+      // var str1 = "abcde";
+      // var str2 = str1.replace("cd","XXX");
+      // console.log(str2); // abXXXe，将str1中的cd替换成XXX
+
+      var str1 = "一,二,三,四,五";
+      var arr = str1.split(","); // 将str1 以逗号进行分割，分割成N份，所以返回的结果一定是数组结构
+      console.log("共分割成：" + arr.length + "份");
+      console.log("第三份是：" + arr[2]); // 三
+    </script>
+  </body>
+</html>

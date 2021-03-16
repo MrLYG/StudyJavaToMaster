@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        console.log("11");
+    //   localStorage.setItem("name1", "吕布");
+    //   localStorage.setItem("name2", "赵云");
+    //   localStorage.setItem("name3", "典韦");
+
+    //   console.log(localStorage.getItem("name1"));
+    //   console.log(localStorage.getItem("name2"));
+    //   console.log(localStorage.getItem("name3"));
+
+    //   console.log("英年早逝");
+    //   localStorage.removeItem("name1");
+    //   localStorage.removeItem("name3");
+
+    //   console.log(localStorage.getItem("name1"));
+    //   console.log(localStorage.getItem("name2"));
+    //   console.log(localStorage.getItem("name3"));
+
+        // 三种方式保存数据
+        localStorage["a"] = 1;
+        localStorage.b = 2;
+        localStorage.setItem("c",3);
+        
+        // 查看数据类型
+        console.log( typeof localStorage["a"] )
+        console.log( typeof localStorage["b"] )
+        console.log( typeof localStorage["c"] )
+
+        // 第一种方式读取
+        var a = localStorage.a;
+        console.log(a);
+        
+        // 第二种方式读取
+        var b = localStorage["b"];
+        console.log(b);
+
+        // 第三种方式读取
+        var c = localStorage.getItem("c");
+        console.log(c);
+
+
+    </script>
+  </body>
+</html>

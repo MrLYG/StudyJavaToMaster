@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="test()">点我试试</button>
+    <button onclick="chou()">你瞅啥</button>
+    
+    <script>
+        function test(){
+            document.getElementById("hello").innerHTML = "走哇，喝点去~！";
+        }
+
+        function chou(){
+            document.getElementById("hello").style.color = "red";
+            document.getElementById("hello").style.fontFamily = "华文彩云";
+        }
+    </script>
+
+    <h2 id="hello">你好！</h2>
+</body>
+
+</html>

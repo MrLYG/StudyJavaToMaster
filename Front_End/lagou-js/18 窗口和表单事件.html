@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body onload="test()">
+    <script>
+      function test() {
+        //document.write("哈哈哈哈");
+      }
+
+      function a() {
+        console.log("获得焦点==被激活");
+      }
+      function b() {
+        console.log("bbb");
+      }
+    </script>
+
+    <form action="">
+      <p>帐号：<input onfocus="a()" onblur="b()" /></p>
+      <p>密码：<input /></p>
+    </form>
+  </body>
+</html>

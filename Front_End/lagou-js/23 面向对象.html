@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var user = new Object();
+        user.name = "吕布";
+        user.age = 21;
+        user.say = function(){
+            console.log("大家好，我叫："+this.name+"，我今年"+this.age+"岁了！");
+        }
+
+        // user.say();
+
+
+        // var dog = new Object();
+        // dog.nickname = "屎尿多";
+        // dog.wang = function(){
+        //     console.log("我饿了，我要拆家了！");
+        // }
+        
+        // dog.wang();
+        //-----------------------------------------------------------
+        
+        // function userinfo(name , age){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.say = function(){
+        //         console.log("大家好，我叫："+this.name+"，我今年"+this.age+"岁了！");
+        //     }
+        // }
+
+        // var user = new userinfo("詹姆斯",35);
+        // user.say();
+        //-----------------------------------------------------------
+
+        var user = {
+            username : "孙悟空",
+            age : 527,
+            say : function(){
+                console.log("大家好，我叫："+this.username+"，我今年"+this.age+"岁了！");
+            }
+        };
+
+        user.say();
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="test()">测试</button>
+    <script>
+        function test(){
+            console.log( "当前页面的URL路径地址："+ location.href );
+            location.reload(); // 重新加载当前页面（刷新）
+            location.href = "http://lagou.com";  // 跳转页面
+        }
+    </script>
+</body>
+</html>

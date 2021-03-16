@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var arr1 = new Array();
+      // arr1[0] = 110;
+      // arr1[1] = 119;
+      // arr1[2] = 120;
+
+      // var arr1 = new Array(10, "hello", true);
+
+      // var arr1 = [10,"sun",false];
+
+    //   for (var i = 0; i < arr1.length; i++) {
+    //     console.log(arr1[i]);
+    //   }
+
+    // var arr = [1,2,3,4];
+    // console.log("类型为：" + typeof( arr ) );
+    // var str = arr.toString();  // 将数组转换成字符串
+    // console.log( str +",类型为：" + typeof( str ) );
+
+    // var arr = [1,2,3,4];
+    // var str = arr.join("-"); // 将数组中每个元素用-进行连接，并形成一个全新的字符串
+    // console.log( str +",类型为：" + typeof( str ) );
+
+    // var arr = [1,2,3,4];
+    // var arrnew = arr.concat(5,6); // 在arr数组的后面添加新的元素，形成一个新数组，但是原数组是不变的
+    // console.log( arrnew +",类型为：" + typeof( arrnew ) );
+    // console.log("原数组：" + arr);
+
+    // var arr = ['a','b','c','d','e','f','g','h'];
+    // var arrnew = arr.slice( 2,4 ); // 在arr数组中截取，从2开始（包含），4结束（不包含）
+    // console.log( arrnew ); // cd 
+
+    // var arr = [31,12,111,444];
+    // console.log( arr.toString() );
+    // arr.reverse(); // 将数组中的元素倒置
+    // console.log( arr.toString() );
+
+    // var arr = [31,12,111,444];
+    // arr.sort(); // 字符排序（不会按照字面量的大小）
+    // console.log( arr );
+
+    var arr = [31,12,111,444];
+    arr.sort( laosun ); // 数字排序（会按照字面量的大小）
+    console.log( arr );
+
+    // 定义排序函数
+    function laosun(a,b){
+       return  a-b;
+    }
+    </script>
+  </body>
+</html>

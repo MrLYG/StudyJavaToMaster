@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1" cellspacing="0">
+      <tr>
+        <td><input type="checkbox" onchange="quan(this)" /> 全选</td>
+        <td>名称</td>
+        <td>单价</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="one" />1</td>
+        <td>功能性饮料-尖叫</td>
+        <td>4.0</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="one" />2</td>
+        <td>火腿肠</td>
+        <td>2.0</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="one" />3</td>
+        <td>包子</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="one" />4</td>
+        <td>包子</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="one" />5</td>
+        <td>包子</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="one" />6</td>
+        <td>包子</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="one" />7</td>
+        <td>包子</td>
+        <td>1.5</td>
+      </tr>
+    </table>
+
+    <script>
+      var rows = document.getElementsByTagName("tr"); //通过标签名获得元素对象集合
+      for (var i = 0; i < rows.length; i++) {
+          if(i % 2 == 1){ // 奇数
+            rows[i].style.backgroundColor = "pink";
+          }
+      }
+    </script>
+  </body>
+</html>

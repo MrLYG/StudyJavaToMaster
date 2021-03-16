@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    // a = 10; // 全局变量，声明的时候可以不使用var
+    // function test1(){
+    //     b = 20; // 不适用var声明的变量，就是全局变量
+    //     var c = 30; // 用var声明，并且在函数的内部。这样的变量叫做局部变量，有效范围只能在其声明的函数内部
+    //     console.log(c);
+    // }
+
+    //  function test2(){
+    //     console.log(c); //c is not defined (c变量没有定义)
+    // }
+
+    // test1();
+    // test2();
+
+
+    
+    function test1(){
+        var count = 0; //局部变量
+        function jia(){
+            return count+=1; 
+        }
+        return jia;
+    }
+    var fn = test1(); // 0
+    fn();
+    fn();
+
+    console.log( fn() ); // 每次调用方法，首先就是将变量还原为0
+    </script>
+</body>
+</html>

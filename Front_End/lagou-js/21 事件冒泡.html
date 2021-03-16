@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    #father {
+      width: 200px;
+      height: 200px;
+      background: black;
+      padding: 10px;
+    }
+
+    #child {
+      width: 100px;
+      height: 100px;
+      background: greenyellow;
+    }
+  </style>
+  <body>
+    <div id="father">
+      <div id="child"></div>
+    </div>
+    <script>
+      // 代码不重要，重要是知道这个事件发生，是正常现象
+
+      document.getElementById("father").addEventListener("click", function() {
+        alert("父级元素的事件被触发：" + this.id);
+      });
+
+      document.getElementById("child").addEventListener("click", function(e) {
+        e.stopPropagation()  //取消事件的冒泡机制
+        alert("子级元素的事件被触发：" + this.id);
+      });
+    </script>
+  </body>
+</html>

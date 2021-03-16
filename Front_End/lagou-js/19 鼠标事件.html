@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+img{
+    width: 30%;
+    border: 5px solid white;
+}
+</style>
+<body>
+    
+    <img src="img/logo.png" onmouseover="shang(this)" onmouseout="xia(this)" onclick="dan()">
+    <img src="img/logo.png" onmouseover="shang(this)" onmouseout="xia(this)" ondblclick="shuang()">
+    <img src="img/logo.png" onmouseover="shang(this)" onmouseout="xia(this)" >
+
+    <script>
+    function dan(){
+        alert("点了一下");
+    }
+
+    function shuang(){
+        alert("连续快读点两下");
+    }
+
+    function shang(img){
+        img.style.border = "5px solid red";
+    }
+    function xia(img){
+        img.style.border = "5px solid white";
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>     <!-- ！是的声明的意思，doc是文档document，type是类型， -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="xxx" onsubmit="return login()">
+      <p>帐号：<input id="username"/></p>
+      <p>电话：<input id="phone"/></p>
+      <p><button>登录</button></p>
+    </form>
+
+    <script>
+      function login() {
+         var name = document.getElementById("username").value ;
+         if(name == ""){
+            alert("帐号不能为空！");
+            return false; // 阻止表单的提交
+         }
+         return true; // 放行，让表单提交
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var json1 = { username: "吕布", age: 31 };
+      console.log("姓名：" + json1.username + "，年龄：" + json1.age + "岁");
+
+      // json数组
+      var josnarr = [{ name: "貂蝉", age: 18 }, { name: "小乔", age: 17 }];
+      console.log("貂蝉" + josnarr[0].age + "岁了");
+      console.log("小乔" + josnarr[1].age + "岁了");
+
+      // 复杂的json对象
+      var long = {
+        name: "赵云",
+        sex: "男",
+        hobby: ["玉兰白龙驹", "龙胆亮银枪", "青釭剑"]
+      };
+      console.log(long.name + "的主攻武器：" + long.hobby[1]);
+    </script>
+  </body>
+</html>

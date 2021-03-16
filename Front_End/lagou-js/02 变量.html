@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var a = 10 + "a";
+      var b = true + 5;
+      var c = true + "a";
+      var d = true + true;
+
+      console.log(a +"|" + typeof(a) ); // 10a, string
+      console.log(b +"|" + typeof(b)); //6, number
+      console.log(c +"|" + typeof(c)); //truea , string
+      console.log(d +"|" + typeof(d)); //2 , number
+
+      var x = "6.32";
+      console.log( parseInt(x) +"|" + typeof(parseInt(x))); // number:6
+      console.log( parseFloat(x) +"|" + typeof(parseFloat(x))); // number:6.32
+
+      var y1 = "10";
+      var y2 = 10;
+      var b1 = y1 == y2; // 判断值
+      var b2 = y1 === y2; //严格判断
+      console.log( b1 ) ; // true
+      console.log( b2 ) ; // 虽然值相等，但类型不相等，所以false
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="add()">添加</button>
+    <button onclick="del()">删除</button>
+    <button onclick="rep()">替换</button>
+    <div>
+    </div>
+
+    <script>
+        function add(){
+            var img = document.createElement("img"); //  <img>
+            img.setAttribute("src","../lagou-html/img/cat.gif"); //  <img src="../lagou-html/img/cat.gif">
+            img.setAttribute("title","小猫咪"); // <img src="../lagou-html/img/cat.gif" title="小猫咪">
+            img.setAttribute("id","cat"); // <img src="../lagou-html/img/cat.gif" title="小猫咪" id="cat">
+
+            var divs = document.getElementsByTagName("div");
+            divs[0].appendChild(img);
+        }
+
+        function del(){
+            var img = document.getElementById("cat");
+            img.parentNode.removeChild(img);  // 必须通过父节点，才能删除子节点
+        }
+
+        function rep(){
+            var imgold = document.getElementById("cat");
+            // 通过修改元素的属性，做的替换
+            // img.setAttribute("src","../lagou-html/img/2.jpg");
+
+            var imgnew = document.createElement("img"); 
+            imgnew.setAttribute("src","../lagou-html/img/1.jpg"); 
+
+            imgold.parentNode.replaceChild( imgnew, imgold );
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var time = new Date();
+        console.log( time ); // Tue Jul 14 2020 11:09:46 GMT+0800 (中国标准时间)
+
+        var year = time.getFullYear(); // 年份
+        var month = time.getMonth() + 1; //月份从0开，11结束，所以国内习惯要+1
+        var day = time.getDate(); // 几号
+        var hour = time.getHours(); // 几点
+        var mm = time.getMinutes(); // 分钟
+        var s = time.getSeconds(); //秒
+        var ms = time.getMilliseconds(); // 毫秒， 1000毫秒 = 1秒
+
+        var timestr = year+"年"+month+"月"+day+"号 "+hour+"点"+mm+"分"+s+"秒"+ms+"毫秒";
+        console.log( timestr );
+    </script>
+</body>
+</html>

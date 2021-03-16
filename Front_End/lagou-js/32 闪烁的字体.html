@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title"></h1>
+
+    <script>
+      var colors = ["red","blue","yellow","pink","orange","black"];
+      var i = 0;
+      function bian(){
+        document.getElementById("title").style.color = colors[i++];
+        if(i == colors.length){
+            i = 0; // 颜色重新开始
+        }
+      }
+
+      function time(){
+        var d = new Date();
+        var str = d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"号 "+d.getHours()+"点"+d.getMinutes()+"分"+d.getSeconds()+"秒";
+        document.getElementById("title").innerHTML = str;   
+      }
+
+      setInterval(bian,100); // 每隔1秒，执行一次变色函数bian
+      setInterval(time,1000); // 每隔1秒，执行一次时间函数time
+    </script>
+  </body>
+</html>

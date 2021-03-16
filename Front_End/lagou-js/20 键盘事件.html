@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onkeydown = function(){
+            // event：事件源（按键）
+            // console.log( "按键编码："+event.keyCode );
+            if(event.keyCode == "13"){
+                alert("登录成功！");
+            }
+        }
+
+        window.onkeyup = function(){
+            console.log(event.keyCode); // 按住按键不松手是不会触发的。当松手时，按键回弹则触发
+        }
+    </script>
+</body>
+</html>
