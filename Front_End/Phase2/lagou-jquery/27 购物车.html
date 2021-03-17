@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .jian,.jia{
+        border:1px solid #999;
+        display: inline-block; /*超链接a是行内元素，只能转换成行内块元素，才能改变宽和高*/
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        text-decoration: none;
+    }
+</style>
+<body>
+    <table border="1" cellspacing="0" width="400">
+        <tr>
+            <td>商品编号</td>
+            <td>名称</td>
+            <td>单价</td>
+            <td>数量</td>
+            <td>总价</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>炸香肠</td>
+            <td>3</td>
+            <td>
+                <a href="#" class="jian">-</a>
+                <span>1</span>
+                <a href="#" class="jia">+</a>
+            </td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>王八</td>
+            <td>10</td>
+            <td>
+                <a href="#" class="jian">-</a>
+                <span>1</span>
+                <a href="#" class="jia">+</a>
+            </td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>恐龙</td>
+            <td>1000</td>
+            <td>
+                <a href="#" class="jian">-</a>
+                <span>1</span>
+                <a href="#" class="jia">+</a>
+            </td>
+            <td>1000</td>
+        </tr>
+    </table>
+    <p style="width: 400px; text-align: right;">
+        总价：<b style="color:red;">111</b> <button>提交订单</button>
+    </p>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/car.js"></script>
+</body>
+</html>

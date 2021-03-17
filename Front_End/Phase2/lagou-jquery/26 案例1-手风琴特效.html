@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    dd{
+        display: none; /*隐藏元素*/
+    }
+</style>
+<body>
+    <nav>
+        <header>拉勾网</header>
+        <ul>
+            <li>
+                <dl>
+                    <dt>求职</dt>
+                    <dd>1.简历</dd>
+                    <dd>2.面试</dd>
+                    <dd>3.入职</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>教育</dt>
+                    <dd>1.看视频</dd>
+                    <dd>2.做作业</dd>
+                    <dd>3.24小时在线辅导</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>3W创业</dt>
+                    <dd>1.帮助小企业</dd>
+                    <dd>2.头脑风暴</dd>
+                    <dd>3.赚钱啦</dd>
+                </dl>
+            </li>
+        </ul>
+    </nav>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("nav dt").click(function(){
+            //所有的dd全部都闭合上，除了自己的兄弟
+            $("dd").not( $(this).siblings() ).slideUp(500);
+            // 自己的兄弟进行切换，显示闭合上，闭合的显示出来
+            $(this).siblings().slideToggle(500);
+            
+        });
+    </script>
+</body>
+</html>

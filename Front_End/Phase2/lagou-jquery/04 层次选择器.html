@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>000</h3>
+    <div id="x">
+        111
+        <p>p1</p>
+        <div>
+            <p>p2</p>
+        </div>
+    </div>
+    <h3>222</h3>
+    <h3>333</h3>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        //$("#x p").css("color","red"); // 后代选择器，忽略层级
+        //$("#x>p").css("color","red"); // 子代选择器，只负责子级
+        //$("#x+h3").css("color","red"); // 相邻元素选择器，下一个紧邻的兄弟h3
+        $("#x~h3").css("color","red"); // 同辈元素选择器，下面的所有兄弟h3
+    </script>
+
+</body>
+</html>

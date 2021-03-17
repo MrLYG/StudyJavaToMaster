@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="title">拉勾网</p>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        
+        // js方式获得dom对象
+        // alert( document.getElementById("title").innerHTML );
+        
+        // jQ方式获得dom对象
+        // alert( $("p").html());
+
+        var jsDom = document.getElementById("title");
+        var jqDom = $("p");
+
+        // alert( jsDom.html() ); //使用jq对象，调用js的函数，报错，混搭不允许！
+
+        // 就想用js对象调用jq的方法，必须的进行对象的转换
+        jqDom = $(jsDom) ;  // js对象 ---转换--> jq对象
+        // alert( jqDom.html());
+        
+        jsDom = jqDom.get(0);// jq对象 ---转换--> js对象
+        alert( jsDom.innerHTML);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>中国</p>
+    <p>武汉</p>
+    <p class="jy">加油</p>
+    <p id="wan">祖国万岁</p>
+    <h3 class="jy">祖国万岁</h3>
+    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        //$("p").css("color","red"); // 标签选择器，获得所有的p
+        //$(".jy").css("color","red"); //类选择器
+        //$("#wan").css("color","red"); //ID选择器,更具备唯一性
+        //$(".jy,#wan").css("color","red"); // 并集选择器，.jy和#wan
+        $("h3.jy").css("color","red"); // 交集选择器，既是h3标签，又拥有.jy的元素
+    </script>
+
+</body>
+</html>

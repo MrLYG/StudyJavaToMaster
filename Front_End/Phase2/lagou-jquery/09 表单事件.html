@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <p>帐号: <input id="a" value="请输入帐号..."> </p>
+        <p>电话: <input id="b"> </p>
+    </form>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        //获得焦点（激活/点击一下）
+        $("#a").focus(function(){
+            $(this).val("");
+        });
+
+        //失去焦点（未激活/未点击）
+        $("#a").blur(function(){
+            $(this).val("请输入帐号...");
+        });
+    </script>
+</body>
+</html>

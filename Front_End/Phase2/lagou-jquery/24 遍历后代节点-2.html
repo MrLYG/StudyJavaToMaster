@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>测试</button>
+    <ul>
+        <li>盘古</li>
+        <li>蚩尤</li>
+        <li>刑天
+            <p>龚工</p>
+        </li>
+        <h3>祝融</h3>
+    </ul>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("button").click(function(){
+            //var x = $("ul").find("p").text(); //在ul中查找p元素，忽略层级
+            //var x = $("ul").find("h3").text(); //在ul中查找h3元素，忽略层级
+            var x = $("ul").find().text(); // 找什么？不知道！
+            alert(x);
+        });
+    </script>
+</body>
+</html>

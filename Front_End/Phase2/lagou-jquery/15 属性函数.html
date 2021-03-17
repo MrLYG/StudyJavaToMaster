@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1">点我试试</button>
+    <hr>
+    <img src="img/1.jpg" title="美女大图" width="300">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("#btn1").click(function(){
+            $("img").attr("src","img/2.jpg");
+            $("img").attr("title","高清无码");
+            $("img").attr( {width:"200",height:"200"} );
+        });
+    </script>
+</body>
+</html>

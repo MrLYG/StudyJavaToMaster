@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>测试</button>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ul>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("button").click(function(){
+           //var x =  $("ul").children().text(); //所有子节点：abc
+           var x =  $("ul").children("li:first").text();  //ul中的第一个子节点
+           alert(x);
+        });
+    </script>
+</body>
+</html>

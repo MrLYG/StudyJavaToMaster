@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><button>测试</button></p>
+    <ul>
+        <li>a</li>
+        <li>
+            <b>b</b>
+        </li>
+        <li>c</li>
+    </ul>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("button").click(function(){
+            //var x = $("b").parent().html(); // 找爸爸
+            //var x = $("b").parents("ul").html(); // 找祖宗 ul
+            //var x = $("b").parents("body").html(); // 找祖宗 body
+            alert( x );
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: #000;
+    }   
+
+    .a{
+        background: palevioletred;
+        border-radius: 50%;
+    } 
+    .b{
+        border:5px dashed darkcyan;
+        opacity: 0.6;
+    }
+
+    .cn{
+       background: #000;
+       color:#FFF; 
+       font-family: 字魂49号-逍遥行书;
+    }
+</style>
+<body>
+    <button id="btn1">试试</button>
+    <button id="btn2">取消透明度</button>
+    <button id="btn3">样式切换</button>
+    <hr>
+    <div></div>
+    <h1>中华人民共和国，万岁！</h1>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("#btn1").click(function(){
+            // $("div").addClass("a");
+            $("div").addClass("a b");
+        });
+
+        $("#btn2").click(function(){
+            $("div").removeClass("b");
+        });
+
+        $("#btn3").click(function(){
+            $("h1").toggleClass("cn");
+        });
+    </script>
+</body>
+</html>

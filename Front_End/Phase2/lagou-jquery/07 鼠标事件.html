@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img src="img/1.jpg" width="300">
+    <img src="img/1.jpg" width="300">
+    <img src="img/1.jpg" width="300">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+
+        $("img").click( function(){
+            //点击一下，换照片
+            $(this).attr( "src","img/2.jpg" ); //this就是事件触发的源头
+        } );
+
+        $("img").mouseover( function(){   //移动到元素上
+            $(this).css( "border","2px solid red" );
+        } );
+        $("img").mouseout( function(){    //离开元素
+            $(this).css( "border","2px solid white" );
+        } );
+    </script>
+</body>
+</html>

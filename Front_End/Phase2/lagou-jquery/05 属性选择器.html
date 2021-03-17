@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="www.lagou.com">拉勾网</a>
+    <a href="www.sina.com.cn">新浪网</a>
+    <a href="http://www.163.com">网易</a>
+    <p href="x">哈哈1</p>
+    <p href="x" title="x">哈哈2</p>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+
+        //$("[href]").css("color","red"); // 选取拥有href属性的元素
+        //$("[href='x']").css("color","red"); // 选取拥有href=x的元素
+        //$("a[href!='x']").css("color","red"); // 选取a标签中href不等于x的元素
+        //$("[href^='www']").css("color","red"); // 选取href属性以www开头的元素
+        //$("[href$='com']").css("color","red"); // 选取href属性以com结尾的元素
+        //$("[href*='a']").css("color","red"); // 选取href属性包含a的元素
+        $("p[href][title='x']").css("color","red"); // 选取拥有href属性和title属性，并且title=x的p元素
+
+    </script>
+</body>
+</html>

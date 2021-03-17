@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    div{
+        width: 150px;
+        height: 150px;
+        background-color: #000;
+    }
+</style>
+<body>
+    <button>试试</button>
+    <hr>
+    <div></div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("button").click(function(){
+            //var w = $("div").css("width"); // 获取css属性，width的值
+
+            //1.一个键值对
+            //$("div").css("background-color","pink");
+
+            //2.链式编程
+            //$("div").css("background-color","pink").css("border-radius","50%");
+
+            //3.json为参数
+            $("div").css({
+                opacity:"0.4",
+                background:"orange",
+                borderRadius:"50%"
+            } );
+           
+        });
+    </script>
+</body>
+</html>

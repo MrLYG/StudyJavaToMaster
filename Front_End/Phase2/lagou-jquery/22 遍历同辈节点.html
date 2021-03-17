@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>测试</button>
+    <p>p1</p>
+    <ul>
+        <li>a</li>
+        <li>
+            <b>b</b>
+        </li>
+        <li>c</li>
+    </ul>
+    <p>p2</p>
+    <p id="x">p3</p>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("button").click(function(){
+            //var x = $("ul").next().text(); // 紧邻的下一个元素
+            //var x = $("ul").prev().text(); // 紧邻的上一个元素
+            //var x = $("ul").siblings("#x").text(); // 所有的兄弟中，id=x的
+
+            var arr = $("ul").siblings();  // ul的所有兄弟,1个button，3个p，2个script
+            for(var i = 0 ;i< arr.length ;i++){
+                alert(arr[i]);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: black;
+    }
+</style>
+<body>
+  
+    <button id="btn1">显示</button>
+    <button id="btn2">隐藏</button>
+    <button id="btn3">切换</button>
+    <button id="btn4">透明</button>
+    <div></div>
+  
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        // $("#btn2").click(function(){
+        //     //fast:快速的
+        //     //slow:缓慢的
+        //     //毫秒：自定义
+        //     //$("div").hide(2000); 
+        //     //$("div").slideUp(1000); //向上收缩
+        //     $("div").fadeOut(1000);
+        // });
+     
+        // $("#btn1").click(function(){
+        //     //$("div").show('slow');
+        //     //$("div").slideDown(1000); //向下伸展
+        //     $("div").fadeIn(1000);
+        // });
+
+        $("#btn3").click(function(){
+            //$("div").toggle(1000);
+            // $("div").slideToggle(1000); //切换
+            // $("div").fadeToggle(1000);
+            $("div").toggle()
+        });
+
+        $("#btn4").click(function(){
+            $("div").fadeTo(1000,0.5);
+        });
+
+    </script>
+</body>
+</html>

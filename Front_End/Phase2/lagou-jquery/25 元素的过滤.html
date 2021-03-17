@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>测试</button>
+    <ul>
+        <li>盘古</li>
+        <li>蚩尤</li>
+        <li>刑天</li>
+    </ul>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $("button").click(function(){
+            //var x = $("li").first().text(); // 第一个li
+            //var x = $("li").last().text(); // 最后一个li
+            //var x = $("li").eq(1).text(); // 下标为1的li
+            //var x = $("li").not("li:eq(1)").text(); // 除了下标为1的其余所有li
+            var x = $("li").parent().is("ul"); // 返回布尔型，li的父节点是不是ul
+
+            alert(x);
+        });
+    </script>
+</body>
+</html>
