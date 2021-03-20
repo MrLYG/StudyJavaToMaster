@@ -12,6 +12,7 @@ import java.io.IOException;
 public class HelloServletGenricImpl extends GenericServlet {
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+
         System.out.println("extends GenericServlet 22222");
     }
 }
