@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <lin></lin>
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn btn-primary" id="addUser" onclick="addUser()">增加</button>
+    <button class="btn btn-primary" onclick="deleteUsers()">删除</button>
+    <button class="btn btn-primary" onclick="reviseUser()">编辑</button>
+    <button class="btn btn-primary" onclick="search()">查询</button>
+    <input type="text"  id="numberSearch"placeholder="按工号查询">
+    <input type="text"  id="nameSearch" placeholder="按姓名查询">
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>工号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>密码</th>
+                <th>年龄</th>
+                <th>出生日期</th>
+            </tr>
+        </thead>
+
+
+
+        <tbody>
+            <tr >
+                <td><input type="checkbox" > </td>
+                <td>1001</td>
+                <td>张三</td>
+                <td>女</td>
+                <td>1234</td>
+                <td>20</td>
+                <td>1991-1-1</td>
+            </tr>
+            <tr >
+                <td><input type="checkbox"> </td>
+                <td>1001</td>
+                <td>张三</td>
+                <td>女</td>
+                <td>1234</td>
+                <td>20</td>
+                <td>1991-1-1</td>
+            </tr>
+            <tr >
+                <td><input type="checkbox"> </td>
+                <td>1001</td>
+                <td>张三</td>
+                <td>女</td>
+                <td>1234</td>
+                <td>20</td>
+                <td>1991-1-1</td>
+            </tr>
+            <tr >
+                <td><input type="checkbox"> </td>
+                <td>1001</td>
+                <td>张三</td>
+                <td>女</td>
+                <td>1234</td>
+                <td>20</td>
+                <td>1991-1-1</td>
+            </tr>
+           
+        </tbody>
+    </table>
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        tableChange();
+        //表格隔行变色
+        function tableChange(){
+            var t = $("tbody>tr");
+            for(var i = 0; i < t.length; i++){
+                if(i % 2 == 1){
+                    console.log(t[i]);
+                    t[i].style.backgroundColor = "pink";
+                }else{
+                    console.log(t[i]);
+                    t[i].style.backgroundColor = "skyblue";
+                }
+            }
+        }
+        
+        //增加用户
+        function addUser(){
+            var newTr = $("<div id='add'>"
+            + "    <p>工号： <input type='text'></p>"
+            + "    <p>姓名： <input type='text'></p>"
+            + "    <p>性别： <input type='text'></p>"
+            + "    <p>密码： <input type='text'></p>"
+            + "    <p>年龄： <input type='text'></p>"
+            + "    <p>出生日期： <input type='text'></p>"
+            + "    <input type='submit' onclick='submitAddUser()'></div>"
+            )
+
+            $("table").after(newTr); 
+
+        }
+
+        //点击增加用户确定按钮后执行的操作 ， 获取输入的值，将值按照要求插入表格
+        function submitAddUser(){
+            var inputs = new Array();
+            var i = 0;
+            $("#add input").each(function(){
+                inputs[i++] = ($(this).val());
+            })
+
+            $("#add").remove(); //删除节点
+
+            var newTr = $("<tr>"
+                + "    <td><input type='checkbox'> </td>"
+                + "    <td>"+inputs[0] +"</td>"
+                + "    <td>"+inputs[1] +"</td>"
+                + "    <td>"+inputs[2] +"</td>"
+                + "    <td>"+inputs[3] +"</td>"
+                + "    <td>"+inputs[4] +"</td>"
+                + "    <td>"+inputs[5] +"</td>"
+                + "    </tr>"
+            )
+            $("tr:last").after(newTr); 
+    
+            for(var j = 0; j < inputs.length; j++){
+                var temp = inputs[j];
+                console.log(temp);
+            }
+            tableChange();
+        }
+
+        //删除记录
+        function deleteUsers(){
+            var a = $("input[type='checkbox']:checked");
+            $("input[type='checkbox']:checked").each(function() {
+                $(this).parent().parent().remove();
+            })
+            console.log(a);
+            tableChange();
+        }
+
+        //修改编辑结点
+        function reviseUser(){
+            console.log("-------------revise-------------");
+            var a = $("input[type='checkbox']:checked");
+            var inputs = new Array();
+            var i = 0;
+            $("input[type='checkbox']:checked").each(function() {
+                $(this).parent().siblings("td").each(function(){
+                    // console.log($(this).val());
+                    inputs[i++] = ($(this).text());
+                    // $(this).siblings("td").each(function(){
+                    //     console.log($(this).val());
+                    //     
+                    //     console.log(1);
+                    // })
+
+                    
+                    
+                    
+                });
+            })
+            for(var j = 0; j < inputs.length; j++){
+                var temp = inputs[j];
+                console.log(temp);
+            }
+
+            var newTr = $("<div id='add'>"
+                + "    <p>工号： <input type='text' value = '" + inputs[0] + " '></input></p>"
+                + "    <p>姓名： <input type='text' value = '" + inputs[1] + " '></input></p>"
+                + "    <p>性别： <input type='text' value = '" + inputs[2] + " '></input></p>"
+                + "    <p>密码： <input type='text' value = '" + inputs[3] + " '></input></p>"
+                + "    <p>年龄： <input type='text' value = '" + inputs[4] + " '</input></p>"
+                + "    <p>出生日期： <input type='text' value = '" + inputs[5] + " '></input></p>"
+                + "    <input type='submit' onclick='getConetentAndrevise()'></div>"
+                )
+            $("table").after(newTr);
+
+        }
+        //获取生成结点内容，并填回原表格
+        function getConetentAndrevise(){
+            var inputs = new Array();
+            var i = 0;
+            $("#add input").each(function(){
+                inputs[i++] = ($(this).val());
+            })
+
+            $("#add").remove(); //删除节点
+
+            var newTr = $("<tr>"
+                + "    <td><input type='checkbox'> </td>"
+                + "    <td>"+inputs[0] +"</td>"
+                + "    <td>"+inputs[1] +"</td>"
+                + "    <td>"+inputs[2] +"</td>"
+                + "    <td>"+inputs[3] +"</td>"
+                + "    <td>"+inputs[4] +"</td>"
+                + "    <td>"+inputs[5] +"</td>"
+                + "    </tr>"
+            )
+
+            $("input[type='checkbox']:checked").each(function() {
+                $(this).parent().parent().replaceWith(newTr);
+            }) 
+    
+            for(var j = 0; j < inputs.length; j++){
+                var temp = inputs[j];
+                console.log(temp);
+            }
+            tableChange();
+        }
+
+
+        //搜索
+        function search(){
+            console.log($("#numberSearch").val())
+            console.log($("#nameSearch").val())
+            
+        }
+
+
+    </script>
+</body>
+</html>
