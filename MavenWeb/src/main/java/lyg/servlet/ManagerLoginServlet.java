@@ -1,6 +1,7 @@
 package lyg.servlet;
 
 import lyg.enetity.Manager;
+import lyg.factory.EntityFactory;
 import lyg.service.ManagerService;
 import lyg.service.serviceImpl.ManagerServiceImpl;
 
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -17,7 +19,12 @@ import java.io.IOException;
  */
 @WebServlet(name="ManagerLoginServlet",urlPatterns="/managerLogin")
 public class ManagerLoginServlet extends HttpServlet {
-    private ManagerService managerService = new ManagerServiceImpl();
+    private ManagerService managerService;
+
+    public ManagerLoginServlet() {
+        this.managerService = EntityFactory.getManagerService();
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -27,11 +34,14 @@ public class ManagerLoginServlet extends HttpServlet {
         System.out.println("获取到的密码为：" + password);
 
         Manager m = new Manager(userName,password);
-        Boolean flag = managerService.login(m);
-        if(flag){
+        Manager resM = managerService.login(m);
+        if(resM!=null){
             System.out.println(userName);
             System.out.println(password);
-            response.sendRedirect("index.jsp");
+            HttpSession httpSession = request.getSession();
+            httpSession.setAttribute("Manager",resM);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/studentList");
+            requestDispatcher.forward(request,response);
         }else {
             System.out.println("用户或密码错误");
         }

@@ -14,6 +14,15 @@ public class Student {
     private String sPassword;
     private String sNote;
 
+    public Student(String sId, String sName, String sGender, String sBorn, String sEmail) {
+        this.sId = sId;
+        this.sName = sName;
+        this.sGender = sGender;
+        this.sBorn = sBorn;
+        this.sEmail = sEmail;
+
+    }
+
     public String getsId() {
         return sId;
     }

@@ -5,5 +5,5 @@ import lyg.enetity.Manager;
 import java.sql.SQLException;
 
 public interface ManagerDao {
-    Boolean login(Manager m) throws ClassNotFoundException, SQLException;
+    Manager login(Manager m) throws ClassNotFoundException, SQLException;
 }

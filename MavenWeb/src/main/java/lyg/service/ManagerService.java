@@ -8,5 +8,5 @@ public interface ManagerService {
      * @param m
      * @return
      */
-    Boolean login(Manager m);
+    Manager login(Manager m);
 }

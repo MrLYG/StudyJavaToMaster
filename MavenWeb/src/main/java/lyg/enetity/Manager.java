@@ -17,6 +17,27 @@ public class Manager {
         this.mPassword = password;
     }
 
+
+    public Manager() {
+    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "mId='" + mId + '\'' +
+                ", mUsername='" + mUsername + '\'' +
+                ", mPassword='" + mPassword + '\'' +
+                ", mLevel='" + mLevel + '\'' +
+                '}';
+    }
+
+    public Manager(String mId, String mUsername, String mPassword, String mLevel) {
+        this.mId = mId;
+        this.mUsername = mUsername;
+        this.mPassword = mPassword;
+        this.mLevel = mLevel;
+    }
+
     public String getmId() {
         return mId;
     }
@@ -35,16 +56,6 @@ public class Manager {
 
     public String getmPassword() {
         return mPassword;
-    }
-
-    public Manager() {
-    }
-
-    public Manager(String mId, String mUsername, String mPassword, String mLevel) {
-        this.mId = mId;
-        this.mUsername = mUsername;
-        this.mPassword = mPassword;
-        this.mLevel = mLevel;
     }
 
     public void setmPassword(String mPassword) {
