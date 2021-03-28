@@ -1,6 +1,9 @@
 <%@ page import="lyg.enetity.Manager" %>
 <%@ page import="lyg.enetity.Student" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: 李沅罡
   Date: 2021/3/23
@@ -21,10 +24,9 @@
 <%--private String sEmail;--%>
 <%--private String sPassword;--%>
 <%--private String sNote;--%>
-<% Manager manager = (Manager) session.getAttribute("Manager");%>
-<h3 style="height: 50px;text-align: center">欢迎<%= manager.getmUsername() %></h3>
+
 <div>
-    <a href="studentServlet?cmd=add" style="float: left;margin-left: 20px;" >
+    <a href="studentServlet?cmd=add" style="float: left;" >
         <button class="btn btn-primary" style="color: white">新增</button>
     </a>
     <form action="studentServlet?cmd=search" method="post" style="margin-left: 30px;">
@@ -51,9 +53,34 @@
 
 
 
-    <tbody>
+
+    <% //定义每页的长度
+        double pageNum = 10;
+    %>
     <% List<Student> students = (List<Student>) request.getAttribute("students");%>
-    <% for (Student s: students ) { %>
+    <% Map<Integer,List<Student> > studentsMap = new HashMap<>(); %>
+    <%
+        int i = 0;
+        boolean flag = true;
+        int t = 0;
+        while(flag){
+            List<Student> studentsTemp = new ArrayList<>();
+            for (int j = t; j < (i+1)*pageNum; j++) {
+                if(j>=students.size()){
+                    flag = false;
+                    break;
+                }
+                studentsTemp.add(students.get(j));
+            }
+            t+=pageNum;
+            studentsMap.put(i,studentsTemp);
+            i++;
+
+        }
+
+    %>
+    <tbody>
+    <% for (Student s: studentsMap.get(0) ) { %>
         <tr>
 
             <td ><%=s.getsId()%></td>
@@ -72,46 +99,131 @@
 
     <%}%>
 
-<%--    <tr >--%>
-<%--        <td><input type="checkbox" > </td>--%>
-<%--        <td class="number">1001</td>--%>
-<%--        <td class="name">张三</td>--%>
-<%--        <td>女</td>--%>
-<%--        <td>1234</td>--%>
-<%--        <td>29</td>--%>
-<%--        <td>1991-1-1</td>--%>
-<%--    </tr>--%>
-<%--    <tr >--%>
-<%--        <td><input type="checkbox"> </td>--%>
-<%--        <td class="number">1002</td>--%>
-<%--        <td class="name">李四</td>--%>
-<%--        <td>男</td>--%>
-<%--        <td>1234</td>--%>
-<%--        <td>28</td>--%>
-<%--        <td>1992-2-2</td>--%>
-<%--    </tr>--%>
-<%--    <tr >--%>
-<%--        <td><input type="checkbox"> </td>--%>
-<%--        <td class="number">1003</td>--%>
-<%--        <td class="name">王五</td>--%>
-<%--        <td>女</td>--%>
-<%--        <td>1234</td>--%>
-<%--        <td>27</td>--%>
-<%--        <td>1993-3-3</td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td><input type="checkbox"> </td>--%>
-<%--        <td class="number">1004</td>--%>
-<%--        <td class="name">赵六</td>--%>
-<%--        <td>女</td>--%>
-<%--        <td>1234</td>--%>
-<%--        <td>26</td>--%>
-<%--        <td>1994-4-4</td>--%>
-<%--    </tr>--%>
 
     </tbody>
 
 
 </table>
+<div style="text-align: center;height: 50px;width: 2000px">
+    <ul class="pagination" style="text-align: center">
+
+        <%--        <li class="previous"> <a href="#"> &laquo; </a> </li>--%>
+
+        <% for (int x = 1; x<=Math.ceil(students.size()/pageNum);x++){ %>
+        <li ><a onclick="page<%=x%>()"> <%=x%></a>  </li>
+        <%}%>
+        <%--        <li class="next"> <a href="#">&raquo;</a> </li>--%>
+    </ul>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+    function page1(){
+
+        var newTr = $("<tbody>" +
+            <% for (Student s: studentsMap.get(0) ) { %>
+            "<tr>"+
+            "<td ><%=s.getsId()%></td>"+
+        "<td class='name'><%=s.getsName()%></td>"+
+        "<td class='gender'><%=s.getsGender()%></td>"+
+        "<td><%=s.getsBorn().substring(0,10)%></td>"+
+        "<td><%=s.getsEmail()%></td>"+
+        "<td>"+
+
+        "<a href='studentServlet?cmd=revise&studentid=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >编辑</submit></a>"+
+        "<a href='studentServlet?cmd=delete&sId=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >删除</submit></a>"+
+        "</td>"+
+
+
+        "</tr>"+
+
+        <%}%>
+        "</tbody>"
+        )
+        $("#collection tbody").remove();
+        $("#collection thead").after(newTr);
+        console.log();
+    }
+    function page2(){
+
+        var newTr = $("<tbody>" +
+            <% for (Student s: studentsMap.get(1) ) { %>
+            "<tr>"+
+            "<td ><%=s.getsId()%></td>"+
+            "<td class='name'><%=s.getsName()%></td>"+
+            "<td class='gender'><%=s.getsGender()%></td>"+
+            "<td><%=s.getsBorn().substring(0,10)%></td>"+
+            "<td><%=s.getsEmail()%></td>"+
+            "<td>"+
+
+            "<a href='studentServlet?cmd=revise&studentid=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >编辑</submit></a>"+
+            "<a href='studentServlet?cmd=delete&sId=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >删除</submit></a>"+
+            "</td>"+
+
+
+            "</tr>"+
+
+            <%}%>
+            "</tbody>"
+        )
+        $("#collection tbody").remove();
+        $("#collection thead").after(newTr);
+        console.log();
+    }
+    function page3(){
+
+        var newTr = $("<tbody>" +
+            <% for (Student s: studentsMap.get(1) ) { %>
+            "<tr>"+
+            "<td ><%=s.getsId()%></td>"+
+            "<td class='name'><%=s.getsName()%></td>"+
+            "<td class='gender'><%=s.getsGender()%></td>"+
+            "<td><%=s.getsBorn().substring(0,10)%></td>"+
+            "<td><%=s.getsEmail()%></td>"+
+            "<td>"+
+
+            "<a href='studentServlet?cmd=revise&studentid=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >编辑</submit></a>"+
+            "<a href='studentServlet?cmd=delete&sId=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >删除</submit></a>"+
+            "</td>"+
+
+
+            "</tr>"+
+
+            <%}%>
+            "</tbody>"
+        )
+        $("#collection tbody").remove();
+        $("#collection thead").after(newTr);
+        console.log();
+    }
+    function page4(){
+
+        var newTr = $("<tbody>" +
+            <% for (Student s: studentsMap.get(1) ) { %>
+            "<tr>"+
+            "<td ><%=s.getsId()%></td>"+
+            "<td class='name'><%=s.getsName()%></td>"+
+            "<td class='gender'><%=s.getsGender()%></td>"+
+            "<td><%=s.getsBorn().substring(0,10)%></td>"+
+            "<td><%=s.getsEmail()%></td>"+
+            "<td>"+
+
+            "<a href='studentServlet?cmd=revise&studentid=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >编辑</submit></a>"+
+            "<a href='studentServlet?cmd=delete&sId=<%=s.getsId()%>' style='color: white'><submit class='btn btn-primary' >删除</submit></a>"+
+            "</td>"+
+
+
+            "</tr>"+
+
+            <%}%>
+            "</tbody>"
+        )
+        $("#collection tbody").remove();
+        $("#collection thead").after(newTr);
+        console.log();
+    }
+
+
+</script>
 </body>
 </html>

@@ -13,6 +13,26 @@ public class Student {
     private String sEmail;
     private String sPassword;
     private String sNote;
+    private String sClssId;
+
+    public String getsClssId() {
+        return sClssId;
+    }
+
+    public void setsClssId(String sClssId) {
+        this.sClssId = sClssId;
+    }
+
+    public Student(String sId, String sName, String sGender, String sBorn, String sEmail, String sPassword, String sNote, String sClssId) {
+        this.sId = sId;
+        this.sName = sName;
+        this.sGender = sGender;
+        this.sBorn = sBorn;
+        this.sEmail = sEmail;
+        this.sPassword = sPassword;
+        this.sNote = sNote;
+        this.sClssId = sClssId;
+    }
 
     public Student(String sId, String sName, String sGender, String sBorn, String sEmail) {
         this.sId = sId;

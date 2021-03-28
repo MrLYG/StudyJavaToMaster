@@ -76,13 +76,7 @@ public class StudentDaoImpl implements StudentDao{
     @Override
     public List<Student> searchStudent(Student s) {
         try {
-//            private String sId;
-//            private String sName;
-//            private String sGender;
-//            private String sBorn;
-//            private String sEmail;
-//            private String sPassword;
-//            private String sNote;
+
             QueryRunner queryRunner = new QueryRunner(DruidUtil.getDataSource());
             String sql = "select s_id as sId ,s_name as sName ,s_gender as sGender ,s_born as sBorn ," +
                     "s_email as sEmail ,s_password as sPassword ,note as sNote from student where s_name = ? ";

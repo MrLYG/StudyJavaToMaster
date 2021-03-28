@@ -1,11 +1,10 @@
 package lyg.factory;
 
-import lyg.dao.ManagerDao;
-import lyg.dao.ManagerDaoImpl;
-import lyg.dao.StudentDao;
-import lyg.dao.StudentDaoImpl;
+import lyg.dao.*;
+import lyg.service.ClassInfoService;
 import lyg.service.ManagerService;
 import lyg.service.StudentService;
+import lyg.service.serviceImpl.ClassInfoServiceImpl;
 import lyg.service.serviceImpl.ManagerServiceImpl;
 import lyg.service.serviceImpl.StudentServiceImpl;
 
@@ -24,5 +23,9 @@ public class EntityFactory {
     }
     public static StudentDao getStudentDao(){
         return new StudentDaoImpl();
+    }
+    public static ClassInfoService getClassInfoService(){ return  new ClassInfoServiceImpl();
+    }
+    public static ClassInfoDao getClassInfoDao(){ return  new ClassInfoDaoImpl();
     }
 }

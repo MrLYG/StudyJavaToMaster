@@ -28,6 +28,7 @@ public class ManagerLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
         String userName = request.getParameter("userName");
         System.out.println("获取到的用户名为：" + userName);
         String password = request.getParameter("password");
@@ -39,6 +40,7 @@ public class ManagerLoginServlet extends HttpServlet {
             System.out.println(userName);
             System.out.println(password);
             HttpSession httpSession = request.getSession();
+            httpSession.setMaxInactiveInterval(10080);
             httpSession.setAttribute("Manager",resM);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/studentList");
             requestDispatcher.forward(request,response);

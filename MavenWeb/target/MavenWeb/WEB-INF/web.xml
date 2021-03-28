@@ -14,5 +14,12 @@
 <!--    <url-pattern>/managerLogin</url-pattern>-->
 <!--  </servlet-mapping>-->
 
-
+<filter>
+  <filter-name>LoginFilter</filter-name>
+  <filter-class>lyg.filter.LoginFilter</filter-class>
+</filter>
+<filter-mapping>
+  <filter-name>LoginFilter</filter-name>
+  <url-pattern>/index.html</url-pattern>
+</filter-mapping>
 </web-app>
