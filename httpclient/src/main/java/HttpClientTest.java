@@ -21,16 +21,22 @@ import org.junit.Test;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class HttpClientTest {
+public class HttpClientTest implements Runnable{
 //"http://192.168.8.115:1234/upload"
 
-    @Test
-    public void test(){
-        File pdfFile = new File("D:\\database.pdf");
-        uploadFile("http://192.168.8.115:1234/upload", pdfFile, "171116522311");
+    public static void main(String[] args) {
 
     }
+//    @Test
+//    public void test() throws InterruptedException {
+//
+//
+//        //关闭连接
+//    }
     /**
      * 上传文件
      * 1.filePath: 所需上传的文件目录 2. fileNo 文件编号
@@ -104,5 +110,12 @@ public class HttpClientTest {
 
         }
 
+    }
+
+    public void run() {
+
+//        File pdfFile = new File("D:\\GRE备考\\GRE阅读\\XDF\\2021版GREfo脚阅读400系列-Volume 1-阅读机经篇.pdf");
+        File pdfFile = new File("/home/liyuangang/pafTest.pdf");
+        uploadFile("http://192.168.8.115:1234/upload", pdfFile, ""+System.currentTimeMillis());
     }
 }
