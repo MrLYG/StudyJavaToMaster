@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    
+    <!-- 默认的导航条样式 -->
+    <div class="navbar navbar-default">
+        <!-- 响应式的容器 -->
+        <div class="container">
+            <!-- 导航条的头部 -->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">老孙科技股份有限公司</a>
+                <!-- data-toggle="collapse"  数据切换的事件，特效是折叠-->
+                <!-- data-target="#nav"  折叠效果的目标是下面的#nav容器-->
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- 导航项 -->
+            <div id="nav" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"> <a href="#"> <span class="glyphicon glyphicon-home"></span> 主页</a> </li>
+                    <li> <a href="#"> <span class="glyphicon glyphicon-camera"></span> 产品</a> </li>
+                    <li> <a href="#"> <span class="glyphicon glyphicon-tint"></span> 竞争</a> </li>
+                    <li> <a href="#"> <span class="glyphicon glyphicon-earphone"></span> 联系我们</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
