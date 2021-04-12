@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lagou.mapper.OrderMapper">
+
+    <!--一对一关联查询：查询所有订单，与此同时还要查询出每个订单所属的用户信息-->
+
+    <resultMap id="orderMap" type="com.lagou.domain.Orders">
+        <id property="id" column="id"/>
+        <result property="ordertime" column="ordertime"/>
+        <result property="total" column="total"/>
+        <result property="uid" column="uid"/>
+
+
+        <!--
+            association : 在进行一对一关联查询配置时，使用association标签进行关联
+                property="user" ：要封装实体的属性名
+                javaType="com.lagou.domain.User" 要封装的实体的属性类型
+        -->
+        <association property="user" javaType="com.lagou.domain.User">
+            <id property="id" column="uid"></id>
+            <result property="username" column="username"></result>
+            <result property="birthday" column="birthday"></result>
+            <result property="sex" column="sex"></result>
+            <result property="address" column="address"></result>
+
+        </association>
+    </resultMap>
+
+    <select id="findAllWithUser" resultMap="orderMap">
+        SELECT * FROM orders o LEFT JOIN USER u ON o.uid = u.id
+    </select>
+
+
+
+
+    <resultMap id="orderMap2" type="com.lagou.domain.Orders">
+        <id property="id" column="id"/>
+        <result property="ordertime" column="ordertime"/>
+        <result property="total" column="total"/>
+        <result property="uid" column="uid"/>
+
+        <!--问题：1.怎么去执行第二条sql , 2.如何执行第二条sql的时候，把uid作为参数进行传递-->
+        <association property="user" javaType="com.lagou.domain.User"
+                     select="com.lagou.mapper.UserMapper.findById" column="uid" fetchType="eager"/>
+
+
+
+    </resultMap>
+
+    <!--一对一嵌套查询-->
+    <select id="findAllWithUser2" resultMap="orderMap2">
+        SELECT * FROM orders
+    </select>
+
+
+    <select id="findByUid" parameterType="int" resultType="com.lagou.domain.Orders">
+        SELECT * FROM orders WHERE uid = #{uid}
+    </select>
+
+
+</mapper>

@@ -217,38 +217,94 @@ export default {
       { text: "营销信息" }
     ];
 
-    //获取路由传递参数
+    //2.从路由中获取传递的参数, 课程id
     const id = this.$route.params.courseId;
-    //if ID 为空 跳转到 错误页面
-    if(!id){
-      return this.redirectToError();
-    }
 
-    if(id === "new"){
-      this.course.title = "新增课程"
-    }else{
-      this.course.title = "修改课程"
+    //3.判断id是否有值
+    if (!id) return this.redirectToError();
+
+    //4.判断 是 new 还是 具体的id
+    if (id === "new") {
+      //new 代表新增
+      this.course.title = "新增课程";
+    } else {
+      //否则就是修改
+      this.course.title = "修改课程";
       this.loadCourse(id);
     }
 
+    //5.创建FormData对象,将图片与表单一同上传
     this.params = new FormData();
   },
   methods: {
     //方法1: 保存和修改课程信息
     handleSave() {
-      
+      //检查是否拿到了正确的需要验证的form
+      this.$refs.form.validate(valid => {
+        if (!valid) return false;
+
+        //1.设置Content-Type为 多部件上传
+        let config = {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        };
+
+        //2.获取表单中的数据,保存到params (params 就是 FromData对象)
+        for (let key in this.course) {
+          //debugger
+          console.log(key + "---" + this.course[key]);
+          this.params.append(key, this.course[key]);
+        }
+
+        //3.保存课程信息
+        axios
+          .post("/courseSalesInfo", this.params, config)
+          .then(res => {
+            //debugger
+            if (res.data.status == 0) {
+              //保存成功,跳转到首页
+              this.$router.back();
+            } else if (res.data.status == 1) {
+              this.$message({
+                type: "error",
+                message: res.data.msg
+              });
+            }
+          })
+          .catch(err => {
+            this.$message.error("保存失败! ! !");
+          });
+      });
     },
 
     //文件上传
     onchange(file) {
-      if(file!=null){
-        this.params.append("file",file.raw,file.name);
+      //判断文件不为空
+      if (file != null) {
+        //将文件信息 保存到params中
+        console.log("保存文件")
+        this.params.append("file", file.raw, file.name);
       }
     },
 
     //方法2: 根据ID 回显课程信
     loadCourse(id) {
-      
+      this.loading = true;
+      axios
+        .get("/course", {
+          params: {
+            methodName: "findCourseById",
+            id: id
+          }
+        })
+        .then(res => {
+          this.loading = false;
+          this.course = res.data;
+        })
+        .catch(() => {
+          this.$message.error("回显数据失败! ! !");
+        });
     },
 
     //跳转到错误

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lagou.mapper.UserMapper">
+
+    <!--当前映射开启二级缓存-->
+    <cache></cache>
+
+
+
+    <!--一对多关联查询:查询所有的用户，同时还要查询出每个用户所关联的订单信息-->
+
+    <resultMap id="userMap" type="com.lagou.domain.User">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+
+
+        <!--
+            collection : 一对多使用collection标签进行关联
+        -->
+        <collection property="ordersList" ofType="com.lagou.domain.Orders">
+            <id property="id" column="oid"></id>
+            <result property="ordertime" column="ordertime"/>
+            <result property="total" column="total"/>
+            <result property="uid" column="uid"/>
+        </collection>
+
+    </resultMap>
+
+
+    <select id="findAllWithOrder"  resultMap="userMap">
+       SELECT u.*,o.id oid,o.ordertime,o.total,o.uid FROM orders o RIGHT JOIN USER u ON o.uid = u.id
+    </select>
+
+
+
+
+
+
+    <!--多对多关联查询:查询所有的用户，同时还要查询出每个用户所关联的角色信息-->
+
+    <resultMap id="userRoleMap" type="user">
+        <id property="id" column="id"/>
+        <result property="username" column="username"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+
+        <collection property="roleList" ofType="role">
+            <id column="rid" property="id"></id>
+            <result column="rolename" property="rolename"></result>
+            <result column="roleDesc" property="roleDesc"></result>
+         </collection>
+
+    </resultMap>
+
+    <select id="findAllWithRole" resultMap="userRoleMap">
+        SELECT u.*,r.id rid,r.rolename,r.roleDesc FROM USER u LEFT JOIN sys_user_role ur ON ur.userid = u.id
+		     LEFT JOIN sys_role r ON ur.roleid = r.id
+    </select>
+
+
+
+
+    <!--根据id查询用户
+        useCache="true" 代表当前这个statement是使用二级缓存
+    -->
+    <select id="findById" resultType="com.lagou.domain.User" parameterType="int" useCache="true">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+
+
+    <!--一对多嵌套查询：查询所有的用户，同时还要查询出每个用户所关联的订单信息-->
+
+    <resultMap id="userOrderMap" type="com.lagou.domain.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+
+
+        <!--fetchType="lazy" : 延迟加载策略
+            fetchType="eager": 立即加载策略
+        -->
+        <collection property="ordersList" ofType="com.lagou.domain.Orders" column="id"
+                    select="com.lagou.mapper.OrderMapper.findByUid" ></collection>
+
+    </resultMap>
+
+    <select id="findAllWithOrder2" resultMap="userOrderMap">
+        SELECT * FROM USER
+    </select>
+
+
+    <resultMap id="userRoleMap2" type="com.lagou.domain.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+
+        <collection property="roleList" ofType="com.lagou.domain.Role" column="id" select="com.lagou.mapper.RoleMapper.findByUid"></collection>
+    </resultMap>
+
+    <!--多对多嵌套查询：查询所有的用户，同时还要查询出每个用户所关联的角色信息-->
+    <select id="findAllWithRole2" resultMap="userRoleMap2">
+        SELECT * FROM USER
+    </select>
+
+
+
+</mapper>

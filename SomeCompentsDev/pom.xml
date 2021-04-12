@@ -46,6 +46,13 @@
             <version>4.13.2</version>
             <scope>compile</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>tech.blueglacier</groupId>
+            <artifactId>email-mime-parser</artifactId>
+            <version>1.0.5</version>
+        </dependency>
     </dependencies>
 
 

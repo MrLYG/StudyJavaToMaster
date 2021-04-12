@@ -34,11 +34,10 @@ public class EmailTest {
             BodyPart bodyPart = multipart.getBodyPart(0);
             //如果bodyPart是文本内容则解析
             if(bodyPart.getContent() instanceof String){
-//                System.out.println(bodyPart.getContent());
+
                 //翻译bodyPart中的文本内容并返回一个BodyPart类型
                 BodyPart transedBodyPart=getTransedBodyPart((String) bodyPart.getContent());
-//                transedBodyPart.addHeader("Content-Transfer-Encoding", "UTF-8");
-//                transedBodyPart.setHeader("Content-Transfer-Encoding", "UTF-8");
+
 
                 System.out.println(multipart.getBodyPart(0).getContent());
 
@@ -59,22 +58,20 @@ public class EmailTest {
                 System.out.println("邮件的内容解析出的第一个bodypart不为String类型");
             }
         }
-//        File file1 = new File("D:\\em17.txt");
-//        if(!file.exists()){
-//            file1.mkdir();
-//        }
-//        OutputStream outputStream = new FileOutputStream(file1);
-//        mm.writeTo(outputStream);
+        File file1 = new File("D:\\em23.eml");
+        if(!file.exists()){
+            file1.mkdir();
+        }
+        OutputStream outputStream = new FileOutputStream(file1);
+        mm.writeTo(outputStream);
         System.out.println(emailType);
 
-//        System.out.println(content);
     }
 
     private BodyPart getTransedBodyPart(String o){
         try {
             BodyPart bodyPart = new MimeBodyPart();
-//            bodyPart.setHeader("Content-Transfer-Encoding", "UTF-8");
-//            String res = " akadjsfklaj9oiwejnfosdjfoiadsjf;okjweoifjoisadjfoidjfowiejfidsjojfd;iofhaeohfpewihfoe;w";
+
             String res = "亲爱的云冈,\n" +
                     "\n" +
                     "\n" +
@@ -137,9 +134,7 @@ public class EmailTest {
 
 
             bodyPart.setContent(res,"text/plain; charset=gb2312");
-//            bodyPart.setText(res);
-//            bodyPart.setContent(new String(res.getBytes("UTF-8"),
-//                    "UTF-8"),"text/plain; charset=UTF-8");
+
 
             return bodyPart;
         } catch (MessagingException  e) {
@@ -167,7 +162,7 @@ public class EmailTest {
                      mimeMessage.setContent(mp);
                      mimeMessage.setText(text);
 
-                         File file1 = new File("D:\\em4.eml");
+                         File file1 = new File("D:\\em21.eml");
                          if(!file.exists()){
                              file1.mkdir();
                          }

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1ec04115-7653-45a3-a31f-33d07ddceaa3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\health\repository_boot" />
+        <option name="mavenHome" value="D:/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1cw6JE2f3Ij4vjA2TURdzbijEOi" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mybatis_anno/src/main/java/com/lagou/domain" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lagou.domain" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\mybatis_code\mybatis_anno\src\main\java\com\lagou\domain" />
+      <recent name="D:\mybatis_code\mybatis_anno\src\main\resources" />
+      <recent name="D:\mybatis_code\mybatis_multitable\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MybatisTest.cacheTest">
+    <configuration name="MybatisTest.cacheTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_anno" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lagou.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lagou.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lagou.test.MybatisTest" />
+      <option name="METHOD_NAME" value="cacheTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MybatisTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_anno" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lagou.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lagou.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lagou.test.MybatisTest" />
+      <option name="METHOD_NAME" value="testDelete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MybatisTest.testManyToMany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_anno" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lagou.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lagou.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lagou.test.MybatisTest" />
+      <option name="METHOD_NAME" value="testManyToMany" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MybatisTest.testOneToMany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_anno" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lagou.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lagou.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lagou.test.MybatisTest" />
+      <option name="METHOD_NAME" value="testOneToMany" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MybatisTest.testOneToOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis_anno" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lagou.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lagou.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lagou.test.MybatisTest" />
+      <option name="METHOD_NAME" value="testOneToOne" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MybatisTest.cacheTest" />
+        <item itemvalue="JUnit.MybatisTest.testManyToMany" />
+        <item itemvalue="JUnit.MybatisTest.testOneToMany" />
+        <item itemvalue="JUnit.MybatisTest.testOneToOne" />
+        <item itemvalue="JUnit.MybatisTest.testDelete" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Szc.0713\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ec04115-7653-45a3-a31f-33d07ddceaa3" name="Default Changelist" comment="" />
+      <created>1591427234669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591427234669</updated>
+      <workItem from="1591427236038" duration="14055000" />
+      <workItem from="1591597491085" duration="28293000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="721" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1591438489658">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591438489658" />
+    <state x="627" y="211" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591437584453">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="627" y="211" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591437584453" />
+    <state width="1866" height="84" key="GridCell.Tab.0.bottom" timestamp="1591933802106">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802106" />
+    <state width="1866" height="84" key="GridCell.Tab.0.center" timestamp="1591933802106">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802106" />
+    <state width="1866" height="84" key="GridCell.Tab.0.left" timestamp="1591933802106">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802106" />
+    <state width="1866" height="84" key="GridCell.Tab.0.right" timestamp="1591933802106">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802106" />
+    <state width="1866" height="84" key="GridCell.Tab.1.bottom" timestamp="1591933802107">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802107" />
+    <state width="1866" height="84" key="GridCell.Tab.1.center" timestamp="1591933802107">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802107" />
+    <state width="1866" height="84" key="GridCell.Tab.1.left" timestamp="1591933802106">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802106" />
+    <state width="1866" height="84" key="GridCell.Tab.1.right" timestamp="1591933802107">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1866" height="84" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591933802107" />
+    <state x="240" y="161" key="new project wizard" timestamp="1591843946719">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="240" y="161" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1591843946719" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1591856130391">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591856130391" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lagou/test/mybatisTest.java</url>
+          <line>220</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../mybatis_anno/src/main/java/com/lagou/test/MybatisTest.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
