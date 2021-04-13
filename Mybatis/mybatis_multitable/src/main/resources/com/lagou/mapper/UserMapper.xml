@@ -77,42 +77,54 @@
 
     <!--一对多嵌套查询：查询所有的用户，同时还要查询出每个用户所关联的订单信息-->
 
+<!--    <resultMap id="userOrderMap" type="com.lagou.domain.User">-->
+<!--        <id property="id" column="id"/>-->
+<!--        <result property="username" column="username"></result>-->
+<!--        <result property="birthday" column="birthday"></result>-->
+<!--        <result property="sex" column="sex"></result>-->
+<!--        <result property="address" column="address"></result>-->
+
+
+<!--        &lt;!&ndash;fetchType="lazy" : 延迟加载策略-->
+<!--            fetchType="eager": 立即加载策略-->
+<!--        &ndash;&gt;-->
+<!--        <collection property="ordersList" ofType="com.lagou.domain.Orders" column="id"-->
+<!--                    select="com.lagou.mapper.OrderMapper.findByUid" ></collection>-->
+
+<!--    </resultMap>-->
+
+<!--    <select id="findAllWithOrder2" resultMap="userOrderMap">-->
+<!--        SELECT * FROM USER-->
+<!--    </select>-->
+
+
+<!--    <resultMap id="userRoleMap2" type="com.lagou.domain.User">-->
+<!--        <id property="id" column="id"/>-->
+<!--        <result property="username" column="username"></result>-->
+<!--        <result property="birthday" column="birthday"></result>-->
+<!--        <result property="sex" column="sex"></result>-->
+<!--        <result property="address" column="address"></result>-->
+
+<!--        <collection property="roleList" ofType="com.lagou.domain.Role" column="id" select="com.lagou.mapper.RoleMapper.findByUid"></collection>-->
+<!--    </resultMap>-->
+
+<!--    &lt;!&ndash;多对多嵌套查询：查询所有的用户，同时还要查询出每个用户所关联的角色信息&ndash;&gt;-->
+<!--    <select id="findAllWithRole2" resultMap="userRoleMap2">-->
+<!--        SELECT * FROM USER-->
+<!--    </select>-->
+
     <resultMap id="userOrderMap" type="com.lagou.domain.User">
         <id property="id" column="id"/>
         <result property="username" column="username"></result>
         <result property="birthday" column="birthday"></result>
         <result property="sex" column="sex"></result>
         <result property="address" column="address"></result>
-
-
-        <!--fetchType="lazy" : 延迟加载策略
-            fetchType="eager": 立即加载策略
-        -->
         <collection property="ordersList" ofType="com.lagou.domain.Orders" column="id"
-                    select="com.lagou.mapper.OrderMapper.findByUid" ></collection>
-
+         select="com.lagou.mapper.OrderMapper.findByUid" ></collection>
     </resultMap>
 
-    <select id="findAllWithOrder2" resultMap="userOrderMap">
+    <select id = "findAllWithOrder2" resultMap="">
         SELECT * FROM USER
     </select>
-
-
-    <resultMap id="userRoleMap2" type="com.lagou.domain.User">
-        <id property="id" column="id"/>
-        <result property="username" column="username"></result>
-        <result property="birthday" column="birthday"></result>
-        <result property="sex" column="sex"></result>
-        <result property="address" column="address"></result>
-
-        <collection property="roleList" ofType="com.lagou.domain.Role" column="id" select="com.lagou.mapper.RoleMapper.findByUid"></collection>
-    </resultMap>
-
-    <!--多对多嵌套查询：查询所有的用户，同时还要查询出每个用户所关联的角色信息-->
-    <select id="findAllWithRole2" resultMap="userRoleMap2">
-        SELECT * FROM USER
-    </select>
-
-
 
 </mapper>
