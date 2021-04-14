@@ -181,6 +181,23 @@
 
     </select>
 
+    <!--动态sql的foreach标签：多值查询：根据多个id值查询用户-->
+    <select id="findByArray3" parameterType="int" resultType="user">
+        <include refid="selectUser"/>
+        <where>
+            <!--
+                collection : 代表要遍历的集合元素，通常写collection或者list
+                open : 代表语句的开始部分
+                close : 代表语句的结束部分
+                item : 代表遍历结合中的每个元素，生成的变量名
+                separator: 分隔符
+             -->
+            <foreach collection="array" open="id in (" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
+        </where>
+
+    </select>
 
 
 
