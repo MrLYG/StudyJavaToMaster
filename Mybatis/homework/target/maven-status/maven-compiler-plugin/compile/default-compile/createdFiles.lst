@@ -1,0 +1,4 @@
+per\lyg\domain\Comment.class
+per\lyg\test\test.class
+per\lyg\mapper\ArticleMapper.class
+per\lyg\domain\Article.class

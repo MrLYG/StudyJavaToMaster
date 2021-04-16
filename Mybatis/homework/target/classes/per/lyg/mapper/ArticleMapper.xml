@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="per.lyg.mapper.ArticleMapper">
+
+    <resultMap id="articleMap" type="per.lyg.domain.Article">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="aContent"/>
+
+        <collection property="comments" ofType="per.lyg.domain.Comment">
+            <id property="id" column="cid"></id>
+            <result property="content" column="cContent"></result>
+            <result property="author" column="author"></result>
+            <result property="a_id" column="a_id"></result>
+
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="articleMap">
+        SELECT a.id,a.title,a.content aContent, c.id cid, c.content cContent , c.author, c.a_id FROM t_article a INNER JOIN t_comment c ON a.id = c.a_id
+    </select>
+
+</mapper>
