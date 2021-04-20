@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--在spring配置文件中配置 UserDaoImpl
+        id: 唯一标识，不能重复
+        class:类全路径
+        scope="singleton" :默认值:创建出来的bean是单例的
+               prototype  : 创建出来的bean是多例的，每次从容器中获取都会创建一个新的对象
+        -->
+
+    <bean id="userDao" class="com.lagou.dao.impl.UserDaoImpl"></bean>
+
+
+
+
+</beans>
