@@ -1,6 +1,7 @@
 package com.lagou.test;
 
 import com.lagou.dao.IUserDao;
+import com.lagou.servlet.IUserService;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -89,6 +90,14 @@ public class SpringTest {
     }
 
 
+    @Test
+    public void test5(){
+
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        IUserService userService = (IUserService) classPathXmlApplicationContext.getBean("userService");
+        userService.save();
+
+    }
 
 
 
