@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       	http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+
+">
+
+
+    <!--***注解扫描-->
+    <context:component-scan base-package="com.lagou"></context:component-scan>
+
+    <!--引入jdbc.properties-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+
+    <!--dataSource-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+
+    <!--queryRunner-->
+    <bean id="queryRunner" class="org.apache.commons.dbutils.QueryRunner">
+        <constructor-arg name="ds" ref="dataSource"/>
+    </bean>
+
+    <!--AccountDao-->
+    <bean id="accountDao" class="com.lagou.dao.impl.AccountDaoImpl">
+        <property name="queryRunner" ref="queryRunner"/>
+    </bean>
+
+    <!--AccountDao2-->
+    <bean id="accountDao2" class="com.lagou.dao.impl.AccountDaoImpl2">
+    </bean>
+
+
+    <!--AccountService-->
+  <!--  <bean id="accountService" class="com.lagou.servlet.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+    </bean>-->
+
+
+
+</beans>
