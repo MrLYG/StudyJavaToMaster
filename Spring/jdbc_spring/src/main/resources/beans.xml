@@ -1,0 +1,8 @@
+<beans>
+
+<!--id:标识    class:存的就是要生成实例的类的全路径-->
+    <bean id="userDao" class="com.lagou.dao.impl.UserDaoImpl"></bean>
+
+
+
+</beans>

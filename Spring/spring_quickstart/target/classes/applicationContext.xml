@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--在spring配置文件中配置 UserDaoImpl
+        id: 唯一标识，不能重复
+        class:类全路径
+        scope="singleton" :默认值:创建出来的bean是单例的
+               prototype  : 创建出来的bean是多例的，每次从容器中获取都会创建一个新的对象
+        -->
+
+
+
+
+
+    <!--方式二：工厂静态方法实例化-->
+   <!-- <bean id="userDao" class="com.lagou.factory.StaticFactoryBean"  factory-method="createUserDao"></bean>-->
+
+
+    <!--方式三：工厂普通方法实例化-->
+<!--    <bean id="dynamicFactoryBean" class="com.lagou.factory.DynamicFactoryBean"></bean>
+    <bean id="userDao" factory-bean="dynamicFactoryBean" factory-method="createUserDao"></bean>-->
+
+
+    <!--配置User对象-->
+    <bean id="user" class="com.lagou.domain.User">
+        <property name="username" value="柳岩"/>
+        <property name="age" value="18"/>
+    </bean>
+
+
+    <!--配置UserDao 方式一：无参构造方法进行实例化-->
+    <bean id="userDao" class="com.lagou.dao.impl.UserDaoImpl" >
+        <!--ref:用于引用数据类型的注入，value是用于普通数据类型的注入-->
+        <property name="username" value="子慕"></property>
+        <property name="age" value="18"></property>
+
+        <!--进行list集合数据类型的注入-->
+        <property name="list">
+            <list>
+                <value>aaa</value>
+                <ref bean="user"></ref>
+            </list>
+        </property>
+
+        <!--进行set集合数据类型的注入-->
+        <property name="set">
+            <set>
+                <value>bbb</value>
+                <ref bean="user"></ref>
+            </set>
+        </property>
+
+        <!--进行array数组数据类型的注入-->
+        <property name="array">
+            <array>
+                <value>ccc</value>
+                <ref bean="user"></ref>
+            </array>
+        </property>
+
+        <!--进行map集合数据类型的注入-->
+        <property name="map">
+            <map>
+                <entry key="k1" value="ddd"></entry>
+                <entry key="k2" value-ref="user"></entry>
+            </map>
+        </property>
+
+        <!--进行properties数据类型的注入-->
+        <property name="properties">
+            <props>
+                <prop key="k1">v1</prop>
+                <prop key="k2">v2</prop>
+                <prop key="k3">v3</prop>
+            </props>
+        </property>
+
+    </bean>
+
+    <!--配置UserService-->
+   <bean id="userService" class="com.lagou.service.impl.UserSerivceImpl" p:userDao-ref="userDao">
+        <!--<constructor-arg index="0" type="com.lagou.dao.IUserDao" ref="userDao"/>-->
+       <!-- <constructor-arg name="userDao" ref="userDao"></constructor-arg>-->
+
+       <!--set方法完成依赖注入-->
+      <!-- <property name="userDao" ref="userDao"></property>-->
+    </bean>
+
+    <!--借助import标签-->
+    <import resource="classpath:applicationContext-user.xml"></import>
+
+
+
+
+
+
+
+</beans>
