@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_dbutils_anno" />
+        <module name="spring_jdbctemplate" />
+        <module name="spring_dbutils" />
+        <module name="spring_aop_xml" />
+        <module name="spring_aop_anno" />
+        <module name="spring_quickstart" />
+        <module name="spring_web" />
+        <module name="spring_transfer_tx" />
+        <module name="spring_transfer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
+  </component>
+</project>
