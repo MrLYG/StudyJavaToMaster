@@ -14,16 +14,13 @@
         -->
 
 
-
-
-
     <!--方式二：工厂静态方法实例化-->
-   <!-- <bean id="userDao" class="com.lagou.factory.StaticFactoryBean"  factory-method="createUserDao"></bean>-->
+    <!--    <bean id="userDao" class="com.lagou.factory.StaticFactoryBean"  factory-method="createUserDao"></bean>-->
 
 
     <!--方式三：工厂普通方法实例化-->
-<!--    <bean id="dynamicFactoryBean" class="com.lagou.factory.DynamicFactoryBean"></bean>
-    <bean id="userDao" factory-bean="dynamicFactoryBean" factory-method="createUserDao"></bean>-->
+    <!--    <bean id="dynamicFactoryBean" class="com.lagou.factory.DynamicFactoryBean"></bean>
+        <bean id="userDao" factory-bean="dynamicFactoryBean" factory-method="createUserDao"></bean>-->
 
 
     <!--配置User对象-->
@@ -34,7 +31,7 @@
 
 
     <!--配置UserDao 方式一：无参构造方法进行实例化-->
-    <bean id="userDao" class="com.lagou.dao.impl.UserDaoImpl" >
+    <bean id="userDao" class="com.lagou.dao.impl.UserDaoImpl">
         <!--ref:用于引用数据类型的注入，value是用于普通数据类型的注入-->
         <property name="username" value="子慕"></property>
         <property name="age" value="18"></property>
@@ -83,20 +80,16 @@
     </bean>
 
     <!--配置UserService-->
-   <bean id="userService" class="com.lagou.service.impl.UserSerivceImpl" p:userDao-ref="userDao">
+    <bean id="userService" class="com.lagou.servlet.impl.UserSerivceImpl" p:userDao-ref="userDao">
         <!--<constructor-arg index="0" type="com.lagou.dao.IUserDao" ref="userDao"/>-->
-       <!-- <constructor-arg name="userDao" ref="userDao"></constructor-arg>-->
+        <!-- <constructor-arg name="userDao" ref="userDao"></constructor-arg>-->
 
-       <!--set方法完成依赖注入-->
-      <!-- <property name="userDao" ref="userDao"></property>-->
+        <!--set方法完成依赖注入-->
+        <!-- <property name="userDao" ref="userDao"></property>-->
     </bean>
 
     <!--借助import标签-->
     <import resource="classpath:applicationContext-user.xml"></import>
-
-
-
-
 
 
 

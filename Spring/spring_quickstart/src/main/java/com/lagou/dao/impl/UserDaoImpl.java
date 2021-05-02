@@ -15,7 +15,7 @@ public class UserDaoImpl implements IUserDao {
     private List<Object> list;
     private Set<Object> set;
     private Object[] array;
-    private Map<String,Object> map;
+    private Map<String, Object> map;
     private Properties properties;
 
     public void setProperties(Properties properties) {

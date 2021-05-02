@@ -9,7 +9,7 @@
 
 
     <!--目标类交给IOC容器-->
-    <bean id="accountServcie" class="com.lagou.service.impl.AccountServiceImpl"></bean>
+    <bean id="accountServcie" class="com.lagou.servlet.impl.AccountServiceImpl"></bean>
 
     <!--通知类交给IOC容器-->
     <bean id="myAdvice" class="com.lagou.advice.MyAdvice"></bean>
@@ -18,10 +18,10 @@
 
     <!--
     execution([修饰符] 返回值类型 包名.类名.方法名(参数))
-    execution(public void com.lagou.service.impl.AccountServiceImpl.transfer(java.lang.String))
+    execution(public void com.lagou.servlet.impl.AccountServiceImpl.transfer(java.lang.String))
 
     - 访问修饰符可以省略
-    execution(void com.lagou.service.impl.AccountServiceImpl.transfer(java.lang.String))
+    execution(void com.lagou.servlet.impl.AccountServiceImpl.transfer(java.lang.String))
 
     - 返回值类型、包名、类名、方法名可以使用星号 * 代替，代表任意
     execution(* *.*.*.*.*.*())
@@ -41,7 +41,7 @@
     <!--AOP配置-->
     <aop:config>
         <!--抽取的切点表达式-->
-        <aop:pointcut id="myPointcut" expression="execution(* com.lagou.service.impl.AccountServiceImpl.*(..))"/>
+        <aop:pointcut id="myPointcut" expression="execution(* com.lagou.servlet.impl.AccountServiceImpl.*(..))"/>
 
         <!--配置切面：切入点+通知-->
         <aop:aspect ref="myAdvice">

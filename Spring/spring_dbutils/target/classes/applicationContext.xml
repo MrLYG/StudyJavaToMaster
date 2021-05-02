@@ -43,7 +43,7 @@
 
 
     <!--AccountService-->
-  <!--  <bean id="accountService" class="com.lagou.service.impl.AccountServiceImpl">
+  <!--  <bean id="accountService" class="com.lagou.servlet.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
     </bean>-->
 

@@ -12,10 +12,10 @@ import org.springframework.core.io.ClassPathResource;
 public class SpringTest {
 
     @Test
-    public void test1(){
+    public void test1() {
 
         // 获取到了spring上下文对象，借助上下文对象可以获取到IOC容器中的bean对象 ,加载的同时就创建了bean对象存到容器中
-         ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         //ApplicationContext fileSystemXmlApplicationContext = new FileSystemXmlApplicationContext("D:\\spring_code\\spring_quickstart\\src\\main\\resources\\applicationContext.xml");
 
@@ -24,7 +24,7 @@ public class SpringTest {
         //IUserDao userDao = (IUserDao) classPathXmlApplicationContext.getBean("userDao");
 
         // 2.根据类型在容器中进行查询：有可能报错的情况：根据当前类型匹配到多个实例
-        IUserDao userDao = classPathXmlApplicationContext.getBean("userDao",IUserDao.class);
+        IUserDao userDao = classPathXmlApplicationContext.getBean("userDao", IUserDao.class);
 
         // 调用方法
         userDao.save();
@@ -33,7 +33,7 @@ public class SpringTest {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
 
         // 核心接口，不会创建bean对象存到容器中
         BeanFactory xmlBeanFactory = new XmlBeanFactory(new ClassPathResource("applicationContext.xml"));
@@ -47,12 +47,11 @@ public class SpringTest {
     }
 
 
-
     /*
         测试scope属性：singleton效果
      */
     @Test
-    public void test3(){
+    public void test3() {
 
 
         ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -72,7 +71,7 @@ public class SpringTest {
         测试scope属性：prototype效果
      */
     @Test
-    public void test4(){
+    public void test4() {
 
 
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -91,14 +90,13 @@ public class SpringTest {
 
 
     @Test
-    public void test5(){
+    public void test5() {
 
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         IUserService userService = (IUserService) classPathXmlApplicationContext.getBean("userService");
         userService.save();
 
     }
-
 
 
 }

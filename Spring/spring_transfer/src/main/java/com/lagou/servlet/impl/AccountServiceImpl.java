@@ -17,6 +17,7 @@ public class AccountServiceImpl implements AccountService {
     /*
         转账方法  切入点   添加上事务控制的效果
      */
+    @Override
     public void transfer(String outUser, String inUser, Double money) {
 
 

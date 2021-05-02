@@ -42,7 +42,7 @@
     <!--AOP配置-->
   <!--  <aop:config>
         &lt;!&ndash;1.切点表达式&ndash;&gt;
-        <aop:pointcut id="myPointcut" expression="execution(* com.lagou.service.impl.AccountServiceImpl.*(..))"/>
+        <aop:pointcut id="myPointcut" expression="execution(* com.lagou.servlet.impl.AccountServiceImpl.*(..))"/>
 
         &lt;!&ndash;2.切面配置&ndash;&gt;
         <aop:aspect ref="transactionManager">
