@@ -40,18 +40,18 @@
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
     <!--AOP配置-->
-  <!--  <aop:config>
-        &lt;!&ndash;1.切点表达式&ndash;&gt;
-        <aop:pointcut id="myPointcut" expression="execution(* com.lagou.servlet.impl.AccountServiceImpl.*(..))"/>
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;1.切点表达式&ndash;&gt;-->
+<!--        <aop:pointcut id="myPointcut" expression="execution(* com.lagou.servlet.impl.AccountServiceImpl.*(..))"/>-->
 
-        &lt;!&ndash;2.切面配置&ndash;&gt;
-        <aop:aspect ref="transactionManager">
-            <aop:before method="beginTransaction" pointcut-ref="myPointcut"/>
-            <aop:after-returning method="commit"  pointcut-ref="myPointcut"/>
-            <aop:after-throwing method="rollback" pointcut-ref="myPointcut"/>
-            <aop:after method="release" pointcut-ref="myPointcut"/>
-        </aop:aspect>
-    </aop:config>-->
+<!--        &lt;!&ndash;2.切面配置&ndash;&gt;-->
+<!--        <aop:aspect ref="transactionManager">-->
+<!--            <aop:before method="beginTransaction" pointcut-ref="myPointcut"/>-->
+<!--            <aop:after-returning method="commit" pointcut-ref="myPointcut"/>-->
+<!--            <aop:after-throwing method="rollback" pointcut-ref="myPointcut"/>-->
+<!--            <aop:after method="release" pointcut-ref="myPointcut"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
 
 
 </beans>
