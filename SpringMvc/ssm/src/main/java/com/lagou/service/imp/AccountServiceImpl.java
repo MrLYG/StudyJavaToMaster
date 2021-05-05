@@ -20,6 +20,7 @@ public class AccountServiceImpl implements AccountService {
     /*
         测试spring在ssm环境中的单独使用
      */
+    @Override
     public List<Account> findAll() {
         List<Account> all = accountDao.findAll();
         return all;
