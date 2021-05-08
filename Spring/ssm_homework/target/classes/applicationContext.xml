@@ -38,4 +38,6 @@
         <property name="basePackage" value="per.lyg.mapper"></property>
     </bean>
     <!--spring整合mybatis结束..........-->
+
+
 </beans>
