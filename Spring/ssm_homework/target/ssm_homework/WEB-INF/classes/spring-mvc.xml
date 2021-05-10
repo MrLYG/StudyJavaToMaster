@@ -11,10 +11,11 @@
 
 
     <!--1.组件扫描：只扫描controller-->
+
     <context:component-scan base-package="per.lyg.controller"></context:component-scan>
 
     <!--2.mvc注解增强:处理器映射器及处理器适配器-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
 
     <!--3.视图解析器-->
@@ -23,6 +24,16 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!--自定义类型转换器配置-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+
+        <property name="converters">
+            <set>
+                <bean class="per.lyg.converter.DateConverter"/>
+            </set>
+        </property>
+
+    </bean>
 
     <!--4.放行静态资源-->
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
