@@ -100,8 +100,38 @@ public class CourseController {
             ResponseResult responseResult = new ResponseResult(true, 200, "修改成功", null);
             return responseResult;
         }
+    }
 
+     /*
+        根据ID查询具体的课程信息及关联的讲师信息
+     */
+    @RequestMapping("/findCourseById")
+    public ResponseResult findCourseById(Integer id){
+        CourseVO courseVO = courseService.findCourseById(id);
 
+        ResponseResult responseResult = new ResponseResult(true, 200, "根据ID查询课程信息成功", courseVO);
+        return responseResult;
 
     }
+
+    /*
+        课程状态管理
+     */
+    @RequestMapping("/updateCourseStatus")
+    public ResponseResult updateCourseStauts(Integer id,Integer status){
+
+        //调用service,传递参数，完成课程状态的变更
+        courseService.updateCourseStatus(id,status);
+
+        // 响应数据
+        Map<String, Object> map = new HashMap<>();
+        map.put("status",status);
+
+        ResponseResult responseResult = new ResponseResult(true, 200, "课程状态变更成功", map);
+
+        return  responseResult;
+
+    }
+
+
 }

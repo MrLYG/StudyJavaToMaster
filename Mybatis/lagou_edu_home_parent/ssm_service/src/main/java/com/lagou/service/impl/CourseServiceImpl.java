@@ -5,7 +5,7 @@ import com.lagou.domain.Course;
 import com.lagou.domain.CourseVO;
 import com.lagou.domain.Teacher;
 import com.lagou.service.CourseService;
-import org.springframework.beans.BeanUtils;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -91,6 +91,25 @@ public class CourseServiceImpl implements CourseService {
         courseMapper.updateTeacher(teacher);
 
 
+
+    }
+
+    @Override
+    public CourseVO findCourseById(Integer id) {
+        return courseMapper.findCourseById(id);
+    }
+
+    @Override
+    public void updateCourseStatus(int courseid, int status) {
+
+        //1.封装数据
+        Course course = new Course();
+        course.setId(courseid);
+        course.setStatus(status);
+        course.setUpdateTime(new Date());
+
+        //2.调用mapper
+        courseMapper.updateCourseStatus(course);
 
     }
 }

@@ -163,4 +163,12 @@
         </where>
     </update>
 
+    <!--课程状态管理-->
+    <update id="updateCourseStatus" parameterType="com.lagou.domain.Course">
+        update course set status= #{status},update_time = #{updateTime} where id = #{id}
+    </update>
+
+
+
+
 </mapper>

@@ -17,4 +17,8 @@ public interface CourseService {
     public void updateCourseOrTeacher(CourseVO courseVO) throws InvocationTargetException, IllegalAccessException;
 
     public void saveCourseOrTeacher(CourseVO courseVO) throws InvocationTargetException, IllegalAccessException;
+
+    public CourseVO findCourseById(Integer id);
+
+    public void updateCourseStatus(int courseid, int status);
 }
