@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -81,4 +82,26 @@ public class CourseController {
         return responseResult;
     }
 
+
+    /*
+        新增课程信息及讲师信息
+        新增课程信息和修改课程信息要写在同一个方法中
+     */
+    @RequestMapping("/saveOrUpdateCourse")
+    public ResponseResult saveOrUpdateCourse(@RequestBody CourseVO courseVO) throws InvocationTargetException, IllegalAccessException {
+
+        if(courseVO.getId() == null){
+            //调用service
+            courseService.saveCourseOrTeacher(courseVO);
+            ResponseResult responseResult = new ResponseResult(true, 200, "新增成功", null);
+            return responseResult;
+        }else {
+            courseService.updateCourseOrTeacher(courseVO);
+            ResponseResult responseResult = new ResponseResult(true, 200, "修改成功", null);
+            return responseResult;
+        }
+
+
+
+    }
 }
