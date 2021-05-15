@@ -4,6 +4,7 @@ import com.lagou.domain.Menu;
 import com.lagou.domain.ResponseResult;
 import com.lagou.domain.Role;
 import com.lagou.domain.RoleMenuVo;
+import com.lagou.service.MenuService;
 import com.lagou.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,24 +40,24 @@ public class RoleController {
     /*
         查询所有的父子菜单信息（分配菜单的第一个接口）
      */
-//    @Autowired
-//    private MenuService menuService;
-//
-//    @RequestMapping("/findAllMenu")
-//    public ResponseResult findSubMenuListByPid(){
-//
-//        // -1 表示查询所有的父子级菜单
-//        List<Menu> menuList = menuService.findSubMenuListByPid(-1);
-//
-//        // 响应数据
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("parentMenuList",menuList);
-//
-//        ResponseResult responseResult = new ResponseResult(true, 200, "查询所有的父子菜单信息成功", map);
-//
-//        return responseResult;
-//
-//    }
+    @Autowired
+    private MenuService menuService;
+
+    @RequestMapping("/findAllMenu")
+    public ResponseResult findSubMenuListByPid(){
+
+        // -1 表示查询所有的父子级菜单
+        List<Menu> menuList = menuService.findSubMenuListByPid(-1);
+
+        // 响应数据
+        Map<String, Object> map = new HashMap<>();
+        map.put("parentMenuList",menuList);
+
+        ResponseResult responseResult = new ResponseResult(true, 200, "查询所有的父子菜单信息成功", map);
+
+        return responseResult;
+
+    }
 
     /*
         根据角色ID查询关联的菜单信息ID

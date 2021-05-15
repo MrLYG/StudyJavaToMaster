@@ -1,13 +1,16 @@
 package com.lagou.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 菜单类
  * */
+@Data
 public class Menu {
 
     //主键id
@@ -50,6 +53,8 @@ public class Menu {
 
     //更新人
     private String updatedBy;
+
+    private List<Menu> subMenuList;
 
 
 
