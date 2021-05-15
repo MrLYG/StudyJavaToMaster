@@ -11,6 +11,7 @@ public class UserVo {
 
     // 多条件查询：用户名（手机号）
     private String username;
+
     // 注册起始时间 2020/11/11 2020-08-04
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startCreateTime;
