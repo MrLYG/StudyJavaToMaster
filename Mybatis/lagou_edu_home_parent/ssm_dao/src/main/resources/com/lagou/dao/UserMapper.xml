@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lagou.dao.UserMapper">
+
+    <!--用户分页&多条件组合查询    public List<User> findAllUserByPage(UserVo userVo);-->
+    <select id="findAllUserByPage" parameterType="com.lagou.domain.UserVo" resultType="com.lagou.domain.User">
+        select * from user
+        <where>
+            <if test="true">
+                and is_del !=1
+            </if>
+            <if test="username !=null and username !=''">
+                and name = #{username}
+            </if>
+            <if test="startCreateTime !=null and endCreateTime !=null">
+                and create_time BETWEEN #{startCreateTime} AND #{endCreateTime}
+            </if>
+        </where>
+
+    </select>
+
+</mapper>

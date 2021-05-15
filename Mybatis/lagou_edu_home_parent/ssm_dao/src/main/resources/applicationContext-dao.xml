@@ -28,6 +28,15 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property name="typeAliasesPackage" value="com.lagou.domain"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>helperDialect=mysql</value>
+                    </property>
+                </bean>
+            </array>
+        </property>
 
         <!--引入加载mybatis核心配置文件-->
         <property name="configLocation" value="classpath:sqlMapConfig.xml"></property>

@@ -71,7 +71,7 @@ public class CourseContentController {
         修改章节状态
      */
     @RequestMapping("/updateSectionStatus")
-    public ResponseResult updateSectionStatus(int id,int status){
+    public ResponseResult updateSectionStatus(int id, int status){
 
         courseConentService.updateSectionStatus(id,status);
 

@@ -1,10 +1,12 @@
 package com.lagou.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+@Data
 public class PromotionAd {
 
     // 标识
@@ -32,6 +34,8 @@ public class PromotionAd {
     // 优先级
     private Integer priority;
     private String img;
+
+    private PromotionSpace  promotionSpace;
 
     public String getText() {
         return text;
