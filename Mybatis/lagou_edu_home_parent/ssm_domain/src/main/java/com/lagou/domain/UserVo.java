@@ -3,6 +3,7 @@ package com.lagou.domain;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 public class UserVo {
 
@@ -11,13 +12,33 @@ public class UserVo {
 
     // 多条件查询：用户名（手机号）
     private String username;
-
     // 注册起始时间 2020/11/11 2020-08-04
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startCreateTime;
     // 注册结束时间
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endCreateTime;
+
+
+    private List<Integer> roleIdList;
+
+    private Integer userId;
+
+    public List<Integer> getRoleIdList() {
+        return roleIdList;
+    }
+
+    public void setRoleIdList(List<Integer> roleIdList) {
+        this.roleIdList = roleIdList;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public Integer getCurrentPage() {
         return currentPage;
