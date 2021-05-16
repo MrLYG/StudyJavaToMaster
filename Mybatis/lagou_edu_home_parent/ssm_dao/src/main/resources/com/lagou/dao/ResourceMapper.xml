@@ -24,5 +24,20 @@
 
     </select>
 
+    
 
+    <select id="findResourceListByRoleId" parameterType="int" resultType="com.lagou.domain.Resource">
+        SELECT  r.*  FROM
+    roles rs INNER JOIN
+    role_resource_relation rrr ON rs.id = rrr.role_id
+    LEFT JOIN resource r ON rrr.resource_id = r.id WHERE rrr.role_id = #{param1} AND r.category_id =#{param2}
+    </select>
+
+    <select id="findAllCategoryByRoleId" parameterType="int" resultType="com.lagou.domain.ResourceCategory">
+    SELECT * FROM
+    (SELECT  DISTINCT(r.category_id) AS cid FROM
+    roles rs INNER JOIN
+    role_resource_relation rrr ON rs.id = rrr.role_id
+    LEFT JOIN resource r ON rrr.resource_id = r.id WHERE rrr.role_id = #{roleId}) AS ds JOIN resource_category ON  ds.cid = resource_category.id
+    </select>
 </mapper>

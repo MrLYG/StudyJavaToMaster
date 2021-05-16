@@ -1,7 +1,12 @@
 package com.lagou.domain;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Data
 public class ResourceCategory {
 
     private Integer id;
@@ -11,7 +16,7 @@ public class ResourceCategory {
     private Date updatedTime;
     private String createdBy;
     private String updatedBy;
-
+    private List<Resource> resourceList = new ArrayList<>();
     public Integer getId() {
         return id;
     }

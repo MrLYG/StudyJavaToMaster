@@ -1,7 +1,10 @@
 package com.lagou.domain;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+import java.util.List;
+@Data
 public class Role {
 
     private Integer id;
@@ -13,6 +16,7 @@ public class Role {
     private String createdBy;
     private String updatedBy;
 
+    private List<Resource> resourceList;
     public Integer getId() {
         return id;
     }

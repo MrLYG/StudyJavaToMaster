@@ -5,6 +5,7 @@ import com.lagou.domain.ResponseResult;
 import com.lagou.domain.Role;
 import com.lagou.domain.RoleMenuVo;
 import com.lagou.service.MenuService;
+import com.lagou.service.ResourceService;
 import com.lagou.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -99,7 +100,15 @@ public class RoleController {
 
     }
 
+    @Autowired
+    private ResourceService resourceService;
 
+    @RequestMapping("/findResourceListByRoleId")
+    public ResponseResult findResourceListByRoleId(Integer roleId){
+
+        return  resourceService.findResourceListByRoleId(roleId);
+
+    }
 
 
 }
