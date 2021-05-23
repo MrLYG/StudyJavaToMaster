@@ -1,0 +1,11 @@
+com\lagou\dao\MenuMapper.class
+com\lagou\dao\CourseLessonMapper.class
+com\lagou\dao\CourseMapper.class
+com\lagou\dao\UserMapper.class
+com\lagou\dao\TestMapper.class
+com\lagou\dao\ResourceCategoryMapper.class
+com\lagou\dao\ResourceMapper.class
+com\lagou\dao\PromotionAdMapper.class
+com\lagou\dao\RoleMapper.class
+com\lagou\dao\CourseContentMapper.class
+com\lagou\dao\PromotionSpaceMapper.class

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lagou.dao.ResourceMapper">
+
+    <!--分页&多条件查询资源-->
+    <select id="findAllResourceByPage" parameterType="com.lagou.domain.ResourseVo" resultType="com.lagou.domain.Resource">
+
+        select * from resource
+
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%',#{name},'%')
+            </if>
+
+            <if test="url != null and url != ''">
+                and url = #{url}
+            </if>
+
+            <if test="categoryId != null and categoryId != ''">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+
+    </select>
+
+    
+
+    <select id="findResourceListByRoleId" parameterType="int" resultType="com.lagou.domain.Resource">
+        SELECT  r.*  FROM
+    roles rs INNER JOIN
+    role_resource_relation rrr ON rs.id = rrr.role_id
+    LEFT JOIN resource r ON rrr.resource_id = r.id WHERE rrr.role_id = #{param1} AND r.category_id =#{param2}
+    </select>
+
+    <select id="findAllCategoryByRoleId" parameterType="int" resultType="com.lagou.domain.ResourceCategory">
+    SELECT * FROM
+    (SELECT  DISTINCT(r.category_id) AS cid FROM
+    roles rs INNER JOIN
+    role_resource_relation rrr ON rs.id = rrr.role_id
+    LEFT JOIN resource r ON rrr.resource_id = r.id WHERE rrr.role_id = #{roleId}) AS ds JOIN resource_category ON  ds.cid = resource_category.id
+    </select>
+</mapper>

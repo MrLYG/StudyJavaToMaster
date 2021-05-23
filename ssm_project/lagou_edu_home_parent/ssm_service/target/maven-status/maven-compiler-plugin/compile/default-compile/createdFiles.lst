@@ -1,0 +1,4 @@
+com\lagou\service\PromotionSpaceService.class
+com\lagou\service\PromotionAdService.class
+com\lagou\service\impl\PromotionAdServiceImpl.class
+com\lagou\service\impl\PromotionSpaceServiceImpl.class

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="per.lyg.mapper.EmployeeMapper">
+
+    <!--查询所有账户-->
+    <select id="findAll" resultType="Employee">
+        select * from tb_employee
+    </select>
+
+    <!--addEmployee-->
+    <insert id="addEmployee" parameterType="Employee">
+        insert into tb_employee(emp_name,dept_id,job_name,join_date,telephone)  values(#{emp_name},#{dept_id},#{job_name},#{join_date},#{telephone})
+    </insert>
+
+</mapper>
