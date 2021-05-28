@@ -18,6 +18,7 @@ public class ShopServer {
     //创建客户端，连接到zookeeper
     public void conntect() throws  Exception{
         zkClient = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
+            @Override
             public void process(WatchedEvent watchedEvent) {
 
             }
