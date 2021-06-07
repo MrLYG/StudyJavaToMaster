@@ -1,0 +1,7 @@
+mapper\ProductMapper.class
+models\Product.class
+controller\ProductAction.class
+service\impl\ProductServiceImpl.class
+service\ProductService.class
+mapper\OrderMapper.class
+models\Order.class

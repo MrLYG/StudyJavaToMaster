@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="4" failures="0" name="test.TestDao" time="0.883" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="11.0.5+10-b520.38"/>
+    <property name="sun.boot.library.path" value="D:\CodeSoftware\develop\idea\jbr\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\code_resp\idea\StudyJavaToMaster\Dubbo\lagou-dubbo-parent"/>
+    <property name="java.vm.vendor" value="JetBrains s.r.o"/>
+    <property name="java.vendor.url" value="https://www.jetbrains.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="E:\code_resp\idea\StudyJavaToMaster\Dubbo\lagou-dubbo-parent"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="11.0.5+10-b520.38"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\hp\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="D:\CodeSoftware\develop\idea\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="D:\CodeSoftware\develop\idea\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\CodeSoftware\develop\idea\jbr\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;D:\CodeSoftware\develop\vmware\VmwareWork16\bin\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\CodeSoftware\java\jdk11\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\CodeSoftware\develop\git\Git\cmd;D:\CodeSoftware\develop\maven\apache-maven-3.8.1-bin\apache-maven-3.8.1\bin;D:\CodeSoftware\develop\VSCode\Microsoft VS Code\bin;D:\CodeSoftware\tomcat\tomcat8\tomcat8\bin;%NVM_HOME%;%NVM_SYMLINK%;D:\CodeSoftware\python\Scripts\;D:\CodeSoftware\python\;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Roaming\npm;D:\CodeSoftware\develop\nvm\nvm;D:\CodeSoftware\develop\nvm\nodejs;C:\Users\hp\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="maven.conf" value="D:\CodeSoftware\develop\idea\plugins\maven\lib\maven3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="idea.version2019.3.3" value="true"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\hp"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="user.name" value="hp"/>
+    <property name="java.class.path" value="D:\CodeSoftware\develop\idea\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version2019.3.3 install"/>
+    <property name="java.home" value="D:\CodeSoftware\develop\idea\jbr"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="11.0.5"/>
+    <property name="java.vendor" value="JetBrains s.r.o"/>
+    <property name="maven.home" value="D:\CodeSoftware\develop\idea\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2019-10-15"/>
+    <property name="java.vendor.url.bug" value="https://youtrack.jetbrains.com"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="test.TestDao" name="reviseUser" time="0.676"/>
+  <testcase classname="test.TestDao" name="delete" time="0.056"/>
+  <testcase classname="test.TestDao" name="register" time="0.058"/>
+  <testcase classname="test.TestDao" name="findUsersbyName" time="0.093"/>
+</testsuite>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-dao/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-entity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-entity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-interface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagou-dubbo-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lagou-dubbo-web:war">
+    <output-path>$PROJECT_DIR$/lagou-dubbo-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>lagou-dubbo-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="lagou-dubbo-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="lagou-dubbo-web:war exploded" />
+    </root>
+  </artifact>
+</component>

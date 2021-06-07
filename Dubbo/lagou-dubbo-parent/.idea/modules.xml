@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lagou-dubbo-dao/lagou-dubbo-dao.iml" filepath="$PROJECT_DIR$/lagou-dubbo-dao/lagou-dubbo-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-dubbo-entity/lagou-dubbo-entity.iml" filepath="$PROJECT_DIR$/lagou-dubbo-entity/lagou-dubbo-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-dubbo-interface/lagou-dubbo-interface.iml" filepath="$PROJECT_DIR$/lagou-dubbo-interface/lagou-dubbo-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-dubbo-parent.iml" filepath="$PROJECT_DIR$/lagou-dubbo-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-dubbo-service/lagou-dubbo-service.iml" filepath="$PROJECT_DIR$/lagou-dubbo-service/lagou-dubbo-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-dubbo-web/lagou-dubbo-web.iml" filepath="$PROJECT_DIR$/lagou-dubbo-web/lagou-dubbo-web.iml" />
+    </modules>
+  </component>
+</project>
