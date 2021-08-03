@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/rabbit
+       http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+    <!--1.配置连接-->
+    <rabbit:connection-factory id="connectionFactory"
+                               host="192.168.233.148"
+                               port="5672"
+                               username="lyg"
+                               password="123456"
+                               virtual-host="/"
+                               publisher-confirms="true"
+                               connection-timeout="60000"
+    />
+    <!--2.配置队列-->
+    <rabbit:queue name="test_spring_queue_ttl_2"/>
+    <!--3.配置rabbitAdmin:主要用于在java代码中对队列的管理，用来创建，绑定，删除队列与交换机，发送消息等-->
+    <rabbit:admin connection-factory="connectionFactory"/>
+    <!--4.配置交换机，topic类型-->
+    <rabbit:topic-exchange name="spring_topic_exchange">
+        <rabbit:bindings>
+            <!-- 绑定队列 -->
+            <rabbit:binding pattern="msg.#" queue="test_spring_queue_ttl_2"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+    <!--5.配置json转换的工具-->
+    <bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter"/>
+    <!--6.配置rabbitmq的模版-->
+    <rabbit:template id="rabbitTemplate"
+                     connection-factory="connectionFactory"
+                     exchange="spring_topic_exchange"
+                     message-converter="jsonMessageConverter"
+                     confirm-callback="messageConfirm"/>
+
+    <!--7.确认机制的处理类-->
+    <bean id="messageConfirm" class="confirm.MessageConfirm"></bean>
+
+
+</beans>

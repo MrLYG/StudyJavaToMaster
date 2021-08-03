@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.CourseDao">
+
+    <resultMap type="com.lagou.entity.Course" id="CourseMap">
+        <result property="id" column="c_id" jdbcType="OTHER"/>
+        <result property="courseName" column="course_name" jdbcType="VARCHAR"/>
+        <result property="brief" column="brief" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="OTHER"/>
+        <result property="priceTag" column="price_tag" jdbcType="VARCHAR"/>
+        <result property="discounts" column="discounts" jdbcType="OTHER"/>
+        <result property="discountsTag" column="discounts_tag" jdbcType="VARCHAR"/>
+        <result property="courseDescriptionMarkDown" column="course_description_mark_down" jdbcType="OTHER"/>
+        <result property="courseDescription" column="course_description" jdbcType="OTHER"/>
+        <result property="courseImgUrl" column="course_img_url" jdbcType="VARCHAR"/>
+        <result property="isNew" column="is_new" jdbcType="OTHER"/>
+        <result property="isNewDes" column="is_new_des" jdbcType="VARCHAR"/>
+        <result property="lastOperatorId" column="last_operator_id" jdbcType="INTEGER"/>
+        <result property="autoOnlineTime" column="auto_online_time" jdbcType="TIMESTAMP"/>
+        <result property="createTime" column="c_create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="c_update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDel" column="c_is_del" jdbcType="OTHER"/>
+        <result property="totalDuration" column="total_duration" jdbcType="INTEGER"/>
+        <result property="courseListImg" column="course_list_img" jdbcType="VARCHAR"/>
+        <result property="status" column="c_status" jdbcType="INTEGER"/>
+        <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
+        <result property="previewFirstField" column="preview_first_field" jdbcType="VARCHAR"/>
+        <result property="previewSecondField" column="preview_second_field" jdbcType="VARCHAR"/>
+        <result property="sales" column="sales" jdbcType="INTEGER"/>
+
+        <!-- 1：老师-->
+        <association property="teacher" javaType="com.lagou.entity.Teacher">
+            <result property="id" column="t_id" jdbcType="OTHER"/>
+            <result property="courseId" column="t_course_id" jdbcType="INTEGER"/>
+            <result property="teacherName" column="teacher_name" jdbcType="VARCHAR"/>
+            <result property="position" column="position" jdbcType="VARCHAR"/>
+            <result property="description" column="t_description" jdbcType="VARCHAR"/>
+            <result property="createTime" column="t_create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="t_update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDel" column="t_is_del" jdbcType="OTHER"/>
+        </association>
+
+        <!-- 1：活动课程-->
+        <association property="activityCourse" javaType="com.lagou.entity.ActivityCourse">
+            <result property="id" column="ac_id" jdbcType="INTEGER"/>
+            <result property="courseId" column="ac_course_id" jdbcType="INTEGER"/>
+            <result property="beginTime" column="begin_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="amount" column="amount" jdbcType="OTHER"/>
+            <result property="stock" column="stock" jdbcType="INTEGER"/>
+            <result property="status" column="ac_status" jdbcType="OTHER"/>
+            <result property="isDel" column="ac_is_del" jdbcType="OTHER"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="createTime" column="ac_create_time" jdbcType="TIMESTAMP"/>
+            <result property="createUser" column="create_user" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="ac_update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateUser" column="update_user" jdbcType="VARCHAR"/>
+        </association>
+        <!--N：章节-->
+        <collection property="courseSections" ofType="com.lagou.entity.CourseSection">
+            <result property="id" column="cs_id" jdbcType="OTHER"/>
+            <result property="courseId" column="cs_course_id" jdbcType="INTEGER"/>
+            <result property="sectionName" column="section_name" jdbcType="VARCHAR"/>
+            <result property="description" column="cs_description" jdbcType="VARCHAR"/>
+            <result property="createTime" column="cs_create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="cs_update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDe" column="is_de" jdbcType="OTHER"/>
+            <result property="orderNum" column="cs_order_num" jdbcType="INTEGER"/>
+            <result property="status" column="cs_status" jdbcType="INTEGER"/>
+
+            <!--N：小节-->
+            <collection property="courseLessons" ofType="com.lagou.entity.CourseLesson">
+                <result property="id" column="cl_id" jdbcType="OTHER"/>
+                <result property="courseId" column="cl_course_id" jdbcType="INTEGER"/>
+                <result property="sectionId" column="cl_section_id" jdbcType="INTEGER"/>
+                <result property="theme" column="theme" jdbcType="VARCHAR"/>
+                <result property="duration" column="cl_duration" jdbcType="INTEGER"/>
+                <result property="isFree" column="is_free" jdbcType="OTHER"/>
+                <result property="createTime" column="cl_create_time" jdbcType="TIMESTAMP"/>
+                <result property="updateTime" column="cl_update_time" jdbcType="TIMESTAMP"/>
+                <result property="isDel" column="cl_is_del" jdbcType="OTHER"/>
+                <result property="orderNum" column="cl_order_num" jdbcType="INTEGER"/>
+                <result property="status" column="cl_status" jdbcType="INTEGER"/>
+
+                <!-- 1：小节视频-->
+                <association property="courseMedia" javaType="com.lagou.entity.CourseMedia">
+                    <result property="id" column="cm_id" jdbcType="INTEGER"/>
+                    <result property="courseId" column="cm_course_id" jdbcType="INTEGER"/>
+                    <result property="sectionId" column="cm_section_id" jdbcType="INTEGER"/>
+                    <result property="lessonId" column="cm_lesson_id" jdbcType="INTEGER"/>
+                    <result property="coverImageUrl" column="cover_image_url" jdbcType="VARCHAR"/>
+                    <result property="duration" column="cm_duration" jdbcType="VARCHAR"/>
+                    <result property="fileEdk" column="file_edk" jdbcType="VARCHAR"/>
+                    <result property="fileSize" column="file_size" jdbcType="OTHER"/>
+                    <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+                    <result property="fileDk" column="file_dk" jdbcType="VARCHAR"/>
+                    <result property="createTime" column="cm_create_time" jdbcType="TIMESTAMP"/>
+                    <result property="updateTime" column="cm_update_time" jdbcType="TIMESTAMP"/>
+                    <result property="isDel" column="cm_is_del" jdbcType="OTHER"/>
+                    <result property="durationNum" column="duration_num" jdbcType="INTEGER"/>
+                    <result property="fileId" column="file_id" jdbcType="VARCHAR"/>
+                </association>
+            </collection>
+        </collection>
+
+    </resultMap>
+
+    <sql id="courseInfo">
+        select
+        c.id c_id,`course_name`,`brief`,`price`,`price_tag`,`discounts`,`discounts_tag`,`course_description_mark_down`,`course_description`,`course_img_url`,`is_new`,`is_new_des`,`last_operator_id`,`auto_online_time`,c.create_time c_create_time,c.update_time c_update_time,c.is_del c_is_del,`total_duration`,`course_list_img`,c.status c_status,`sort_num`,`preview_first_field`,`preview_second_field`,`sales`,
+        t.id t_id,t.course_id t_course_id,`teacher_name`,`position`,t.description t_description,t.create_time t_create_time,t.update_time t_update_time,t.is_del t_is_del,
+        cs.id cs_id,cs.course_id cs_course_id,`section_name`,cs.description cs_description,cs.create_time cs_create_time,cs.update_time cs_update_time,`is_de`,cs.order_num cs_order_num ,cs.status cs_status,
+        cl.id cl_id,cl.course_id cl_course_id,cl.section_id cl_section_id,`theme`,cl.duration cl_duration,`is_free`,cl.create_time cl_create_time,cl.update_time cl_update_time,cl.is_del cl_is_del,cl.order_num cl_order_num,cl.status cl_status,
+        cm.id cm_id,cm.course_id cm_course_id,cm.section_id cm_section_id ,cm.lesson_id cm_lesson_id,`cover_image_url`,cm.duration cm_duration,`file_edk`,`file_size`,`file_name`,`file_dk`,cm.create_time cm_create_time,cm.update_time cm_update_time,cm.is_del cm_is_del,`duration_num`,`file_id`,
+        `begin_time`,`end_time`,`amount`,`stock`,ac.status ac_status,ac.is_del ac_is_del,`remark`,ac.create_time ac_create_time,`create_user`,ac.update_time ac_update_time,`update_user`
+    from activity_course ac right join course c on  c.id = ac.course_id
+        inner join teacher t on c.id = t.course_id
+        inner join course_section cs on c.id = cs.course_id
+        inner join course_lesson cl on cl.section_id = cs.id
+        left join course_media cm on cm.lesson_id = cl.id
+    </sql>
+
+
+    <select id="getAllCourse" resultMap="CourseMap">
+        <include refid="courseInfo"/>
+        order by amount desc , c_id , ac_create_time desc
+    </select>
+
+    <select id="getCourseByUserId" resultMap="CourseMap">
+        <include refid="courseInfo"/>
+        where  c.id in( select course_id from user_course_order where status = 20 and is_del = 0  and  user_id = #{userId} )
+        order by amount desc , c_id , ac_create_time desc
+    </select>
+
+    <select id="getCourseById" resultMap="CourseMap">
+        <include refid="courseInfo"/>
+        where c.id = #{courseid}
+    </select>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lagou-edu-dao/lagou-edu-dao.iml" filepath="$PROJECT_DIR$/lagou-edu-dao/lagou-edu-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-edu-entity/lagou-edu-entity.iml" filepath="$PROJECT_DIR$/lagou-edu-entity/lagou-edu-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-edu-parent.iml" filepath="$PROJECT_DIR$/lagou-edu-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lagou-edu-service/lagou-edu-service.iml" filepath="$PROJECT_DIR$/lagou-edu-service/lagou-edu-service.iml" />
+    </modules>
+  </component>
+</project>

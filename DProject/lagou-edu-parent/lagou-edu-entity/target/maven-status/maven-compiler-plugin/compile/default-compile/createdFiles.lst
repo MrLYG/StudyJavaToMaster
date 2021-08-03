@@ -1,0 +1,11 @@
+com\lagou\entity\Course.class
+com\lagou\entity\User.class
+com\lagou\entity\CourseMedia.class
+com\lagou\entity\CourseSection.class
+com\lagou\entity\CourseLesson.class
+com\lagou\entity\Teacher.class
+com\lagou\entity\CourseCommentFavoriteRecord.class
+com\lagou\entity\UserCourseOrder.class
+com\lagou\entity\UserDTO.class
+com\lagou\entity\ActivityCourse.class
+com\lagou\entity\CourseComment.class

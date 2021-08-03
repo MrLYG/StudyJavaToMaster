@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.CourseCommentDao">
+
+    <resultMap type="com.lagou.entity.CourseComment" id="commentMap">
+        <result property="id" column="cc_id" jdbcType="OTHER"/>
+        <result property="courseId" column="course_id" jdbcType="INTEGER"/>
+        <result property="sectionId" column="section_id" jdbcType="INTEGER"/>
+        <result property="lessonId" column="lesson_id" jdbcType="INTEGER"/>
+        <result property="userId" column="cc_user_id" jdbcType="INTEGER"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="isTop" column="is_top" jdbcType="OTHER"/>
+        <result property="comment" column="comment" jdbcType="VARCHAR"/>
+        <result property="likeCount" column="like_count" jdbcType="INTEGER"/>
+        <result property="isReply" column="is_reply" jdbcType="OTHER"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="createTime" column="cc_create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="cc_update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDel" column="cc_is_del" jdbcType="OTHER"/>
+        <result property="lastOperator" column="last_operator" jdbcType="INTEGER"/>
+        <result property="isNotify" column="is_notify" jdbcType="OTHER"/>
+        <result property="markBelong" column="mark_belong" jdbcType="OTHER"/>
+        <result property="replied" column="replied" jdbcType="OTHER"/>
+        <!-- N个点赞-->
+        <collection property="favoriteRecords" ofType="com.lagou.entity.CourseCommentFavoriteRecord">
+            <result property="id" column="ccfr_id" jdbcType="OTHER"/>
+            <result property="userId" column="ccfr_user_id" jdbcType="INTEGER"/>
+            <result property="commentId" column="comment_id" jdbcType="INTEGER"/>
+            <result property="isDel" column="ccfr_is_del" jdbcType="OTHER"/>
+            <result property="createTime" column="ccfr_create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="ccfr_update_time" jdbcType="TIMESTAMP"/>
+        </collection>
+    </resultMap>
+
+    <!--保存留言-->
+    <insert id="saveComment">
+       insert  into `course_comment`(`course_id`,`section_id`,`lesson_id`,`user_id`,`user_name`,`parent_id`,`is_top`,`comment`,`like_count`,`is_reply`,`type`,`status`,`create_time`,`update_time`,`is_del`,`last_operator`,`is_notify`,`mark_belong`,`replied`)
+       values
+       (#{courseId},#{sectionId},#{lessonId},#{userId},#{userName},#{parentId},0,#{comment},0,0,#{type},0,sysdate(),sysdate(),0,#{lastOperator},1,0,0)
+    </insert>
+
+    <!--分页查询某门课程的全部留言-->
+    <select id="getCommentsByCourseId" resultMap="commentMap">
+        select
+        cc.id cc_id,`course_id`,`section_id`,`lesson_id`,cc.user_id cc_user_id,`user_name`,`parent_id`,`is_top`,`comment`,`like_count`,`is_reply`,`type`,`status`,cc.create_time cc_create_time ,cc.update_time cc_update_time ,cc.is_del cc_is_del,`last_operator`,`is_notify`,`mark_belong`,`replied` ,
+        ccfr.id ccfr_id,ccfr.user_id ccfr_user_id,comment_id,ccfr.is_del ccfr_is_del,ccfr.create_time ccfr_create_time,ccfr.update_time ccfr_update_time
+        from course_comment cc left join (select * from course_comment_favorite_record where is_del = 0) ccfr
+        on cc.id = ccfr.comment_id
+        where cc.is_del = 0
+        and course_id = #{courseid}
+        order by is_top desc , like_count desc , cc.create_time desc
+        limit #{offset}, #{pageSize}
+    </select>
+
+    <!--查看某个用户的某条留言是否点过赞-->
+    <select id="existsFavorite" resultType="Integer">
+        select count(*) from course_comment_favorite_record where comment_id = #{cid} and user_id = #{uid}
+    </select>
+    <!--没有点过赞，保存点赞信息-->
+    <insert id="saveCommentFavorite">
+        insert  into `course_comment_favorite_record`(user_id,`comment_id`,`is_del`,`create_time`,`update_time`) values
+(#{uid},#{cid},0,sysdate(),sysdate())
+    </insert>
+    <!--修改点赞的状态，0表示点赞,1表示取消赞-->
+    <update id="updateFavoriteStatus">
+        update course_comment_favorite_record set is_del = #{status} where  comment_id = #{cid} and user_id = #{uid}
+    </update>
+
+    <!--点赞之后，赞的数量+1；取消赞之后，赞的数量-1-->
+    <update id="updateLikeCount">
+        update course_comment set like_count = like_count + #{x} where id = #{comment_id}
+    </update>
+
+</mapper>
